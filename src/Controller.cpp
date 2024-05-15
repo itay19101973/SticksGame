@@ -6,6 +6,8 @@ Controller::Controller() : m_menu()
 
 void Controller::run()
 {
+	srand(time(NULL));
+
 	sf::Vector2f mousePos;
 	sf::RenderWindow window(sf::VideoMode(WINDOW_MANAGER_WIDTH,
 		WINDOW_MANAGER_HEIGHT),

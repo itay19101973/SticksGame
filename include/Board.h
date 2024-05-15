@@ -9,9 +9,10 @@
 class Board {
 public:
 	Board();
+	void draw(sf::RenderWindow& window);
 
 private:
 	std::list<std::shared_ptr<Stick>> m_sticks;
-	States m_states;
+	//States m_states; TO DO 
 
 };

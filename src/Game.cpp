@@ -17,5 +17,34 @@ Game::Game(sf::RenderWindow& window, const std::string& fileName)
 
 void Game::run()
 {
-	
+	sf::Vector2f mousePos;
+	m_window.setFramerateLimit(60);
+
+
+	while (m_window.isOpen())
+	{
+		m_window.clear();
+
+		m_board.draw(m_window);
+
+		m_window.display();
+
+		for (auto event = sf::Event{}; m_window.pollEvent(event); )
+		{
+			switch (event.type)
+			{
+			case sf::Event::Closed:
+
+				m_window.close();
+				break;
+
+			case sf::Event::MouseButtonReleased:
+
+				mousePos = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
+
+				// handle buttons TODO
+
+			}
+		}
+	}
 }
