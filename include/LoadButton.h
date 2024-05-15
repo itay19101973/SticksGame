@@ -3,7 +3,7 @@
 #include "Button.h"
 #include "Game.h"
 
-class PlayButton : public Button
+class LoadButton : public Button
 {
 public:
 	using Button::Button;
