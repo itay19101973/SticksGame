@@ -14,9 +14,9 @@ public:
 	void scale(const sf::Vector2f& values);
 	void setPos(const sf::Vector2f& newPos);
 	bool isClicked(sf::Vector2f mousePosition) const;
-	void draw(sf::RenderWindow* window) const;
-	virtual void action(sf::RenderWindow* window,
-		const ImageManager& textures) = 0;
+	void draw(sf::RenderWindow& window) const;
+	bool isFloatedOn(const sf::Vector2f& mousePosition) const;
+	virtual void action(sf::RenderWindow& window) = 0;
 
 
 private:

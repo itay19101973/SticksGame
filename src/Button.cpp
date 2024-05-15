@@ -29,9 +29,9 @@ bool Button::isClicked(sf::Vector2f mousePosition) const
 }
 
 //===================================================================
-void Button::draw(sf::RenderWindow* window) const
+void Button::draw(sf::RenderWindow& window) const
 {
-	window->draw(m_sprite);
+	window.draw(m_sprite);
 }
 
 //===================================================================
@@ -43,4 +43,10 @@ void Button::scale(const sf::Vector2f& values)
 void Button::setPos(const sf::Vector2f& newPos)
 {
 	this->m_sprite.setPosition(newPos);
+}
+
+//===================================================================
+bool Button::isFloatedOn(const sf::Vector2f& mousePosition) const
+{
+
 }

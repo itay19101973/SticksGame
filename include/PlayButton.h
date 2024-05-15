@@ -5,8 +5,8 @@
 class PlayButton : public Button
 {
 public:
-	PlayButton();
-	~PlayButton();
+	using Button::Button;
+	virtual void action(sf::RenderWindow& window);
 
 private:
 
