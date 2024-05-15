@@ -1,19 +1,77 @@
 #include "Board.h"
 
+//========================================================
 Board::Board()
 {
 	int numOfSticks = (rand() % 10) + MIN_NUM_OF_STICKS;
 
 	for (int i = 0; i < numOfSticks; i++)
 	{
-		m_sticks.push_back(std::make_shared<Stick>());
+		auto stick = std::make_shared<Stick>();
+		
+
+		for (auto& otherStick : m_sticks)
+		{
+			if (otherStick->isIntersect(stick))
+			{
+				otherStick->addBlocker(stick);
+			}
+		}
+
+
+		m_sticks.push_back(stick);
+
+		
 	}
 }
 
-void Board::draw(sf::RenderWindow& window)
+//========================================================
+void Board::draw(sf::RenderWindow& window) const
 {
 	for (const auto& stick : m_sticks)
 	{
 		stick->draw(window);
+	}
+}
+
+//========================================================
+bool Board::isEmpty() const
+{
+	return this->m_sticks.empty();
+}
+
+//========================================================
+// TO DEBUG
+void Board::handleSticks(const sf::Vector2f& mousePos)
+{
+	// Create a list to store iterators of elements to be erased
+	std::list<std::list<std::shared_ptr<Stick>>::iterator> iteratorsToErase;
+
+	// Iterate over the list of sticks
+	for (auto it = m_sticks.begin(); it != m_sticks.end(); ++it)
+	{
+		if ((*it)->isClicked(mousePos) && (*it)->liftable())
+		{
+			this->updateBlockingSticks(*it);
+			iteratorsToErase.push_back(it); // Store iterator to be erased later
+		}
+	}
+
+	// Erase elements using stored iterators
+	for (auto it : iteratorsToErase)
+	{
+		m_sticks.erase(it);
+	}
+}
+
+
+
+
+//========================================================
+void Board::updateBlockingSticks(const std::shared_ptr<Stick> stick)
+{
+	for (auto it = m_sticks.begin(); it != m_sticks.end(); ++it)
+	{
+		(*it)->updateBlockers(stick);
 	}
 }

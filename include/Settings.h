@@ -6,7 +6,7 @@ const unsigned int WINDOW_MANAGER_WIDTH = 869,
 WINDOW_MANAGER_HEIGHT = 867,
 COLOR_NUMBER = 6,
 STICK_WIDTH = 10,
-OFFSET = 100,
+OFFSET = 200,
 MIN_NUM_OF_STICKS = 20;
 
 const sf::Vector2f BUTTON_DEFA_SIZE = { 0.33f, 0.33f },
@@ -20,7 +20,7 @@ const sf::Vector2f BUTTON_DEFA_SIZE = { 0.33f, 0.33f },
 const std::vector<sf::Color> COLOR_SET = { sf::Color::Blue ,
 								sf::Color::Green ,
 								sf::Color::Yellow ,
-								sf::Color::Black ,
+								sf::Color::Red ,
 								sf::Color::Magenta ,
 								sf::Color::White };
 

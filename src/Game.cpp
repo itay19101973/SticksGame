@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Game.h"
 
 //========================================
 Game::Game(sf::RenderWindow& window)
@@ -14,14 +15,14 @@ Game::Game(sf::RenderWindow& window, const std::string& fileName)
 	auto file(fileName); //TODO
 }
 
-
+//==============================================
 void Game::run()
 {
 	sf::Vector2f mousePos;
 	m_window.setFramerateLimit(60);
 
 
-	while (m_window.isOpen())
+	while (m_window.isOpen() && !m_board.isEmpty())
 	{
 		m_window.clear();
 
@@ -44,7 +45,10 @@ void Game::run()
 
 				// handle buttons TODO
 
+				this->m_board.handleSticks(mousePos);
+
 			}
 		}
 	}
 }
+

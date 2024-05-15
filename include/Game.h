@@ -19,6 +19,6 @@ private:
 	sf::Clock m_clock;
 	Board m_board;
 	
-
+	
 	
 };
