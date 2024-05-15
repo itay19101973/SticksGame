@@ -16,7 +16,7 @@ void Controller::run()
 	{
 		window.clear();
 
-		m_menu.draw(&window);
+		m_menu.draw(window);
 
 		window.display();
 
@@ -43,4 +43,5 @@ void Controller::run()
 				m_menu.handleFloating(mousePos);
 			}
 		}
+	}
 }

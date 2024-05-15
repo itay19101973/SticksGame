@@ -1,3 +1,12 @@
 #pragma once
 
-const sf::Vector2f BUTTON_DEFA_SIZE = { 0.33f, 0.33f };
+const unsigned int WINDOW_MANAGER_WIDTH = 869,
+WINDOW_MANAGER_HEIGHT = 867;
+
+const sf::Vector2f BUTTON_DEFA_SIZE = { 0.33f, 0.33f },
+					BUTTON_FLOATED_SIZE = { 0.4f, 0.4f },
+					PLAY_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - BUTTON_DEFA_SIZE.x / 2,
+										WINDOW_MANAGER_HEIGHT / 2 - 200 },
+					EXIT_BTN_POS = { WINDOW_MANAGER_WIDTH / 2 - BUTTON_DEFA_SIZE.x / 2,
+										WINDOW_MANAGER_HEIGHT / 2 + 200 };
+

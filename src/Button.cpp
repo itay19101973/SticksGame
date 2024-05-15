@@ -48,5 +48,5 @@ void Button::setPos(const sf::Vector2f& newPos)
 //===================================================================
 bool Button::isFloatedOn(const sf::Vector2f& mousePosition) const
 {
-
+	return this->m_sprite.getGlobalBounds().contains(mousePosition);
 }

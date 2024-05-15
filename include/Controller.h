@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Menu.h"
+#include "Settings.h"
 
 class Controller
 {

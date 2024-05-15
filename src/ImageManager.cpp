@@ -1,5 +1,15 @@
 #include "ImageManager.h"
 
+ImageManager::ImageManager()
+{
+    this->loadImage("PlayButton", "PlayButton.png");
+    this->loadImage("ExitButton", "ExitButton.png");
+    this->loadImage("Background", "Background.png");
+
+
+}
+
+
 ImageManager& ImageManager::getInstance()
 {
 	static ImageManager instance;

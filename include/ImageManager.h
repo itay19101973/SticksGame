@@ -11,13 +11,15 @@ public:
     static ImageManager& getInstance();
     ImageManager(const ImageManager&) = delete;
     ImageManager& operator=(const ImageManager&) = delete;
-    void loadImage(const std::string& name, const std::string& filename);
     const sf::Texture& getImage(const std::string& name) const;
 
 private:
 
-    ImageManager() {}
+    ImageManager();
     std::unordered_map<std::string, sf::Texture> textures;
+
+    void loadImage(const std::string& name, const std::string& filename);
+
 };
 
 

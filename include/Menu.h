@@ -20,7 +20,7 @@ public:
 
 
 private:
-	std::unordered_map<std::string, Button&> m_buttons;
+	std::unordered_map<std::string, std::unique_ptr<Button>> m_buttons;
 	sf::Sprite m_bgImg;
 	
 };
