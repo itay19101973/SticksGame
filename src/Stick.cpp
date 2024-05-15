@@ -30,7 +30,12 @@ void Stick::draw(sf::RenderWindow& window)
 
 bool Stick::liftable() const
 {
-	return !this->m_blocking.empty();
+	if (this->m_blocking.empty())
+	{
+		return true;
+	}
+
+	return false;
 }
 
 bool Stick::isClicked(const sf::Vector2f& mousePos) const
