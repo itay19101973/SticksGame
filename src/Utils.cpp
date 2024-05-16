@@ -43,7 +43,7 @@ bool doIntersect(Point p1, Point q1, Point p2, Point q2)
 }
 
 
-int getScore(const sf::Color& color)
+int getStickScore(const sf::Color& color)
 {
     if (color == sf::Color::White)
     {

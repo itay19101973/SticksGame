@@ -18,9 +18,10 @@ public:
 private:
 	sf::RenderWindow& m_window;
 	sf::Clock m_clock;
-	Board m_board;/*
+	Board m_board;
+
 	States m_states;
-	Menu m_gameMenu;*/
+	
 	
 	
 	

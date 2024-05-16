@@ -15,7 +15,7 @@ Stick::Stick()
 	m_stick.setSize(sf::Vector2f( STICK_WIDTH , length ));
 	m_endPoint = sf::Vector2f(pos.x + length * cos(((90 + angle) * std::numbers::pi) / 180),
 								pos.y + length * sin(((90+ angle) * std::numbers::pi) / 180));
-	m_score = getScore(m_stick.getFillColor());
+	m_score = getStickScore(m_stick.getFillColor());
 }
 
 //=======================================================

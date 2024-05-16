@@ -1,7 +1,7 @@
 #include "Board.h"
 
 //========================================================
-Board::Board()
+Board::Board() : m_score(0)
 {
 	int numOfSticks = (rand() % 10) + MIN_NUM_OF_STICKS;
 
@@ -28,10 +28,14 @@ Board::Board()
 //========================================================
 void Board::draw(sf::RenderWindow& window) const
 {
+	
+
 	for (const auto& stick : m_sticks)
 	{
 		stick->draw(window);
 	}
+
+	
 }
 
 //========================================================
@@ -60,8 +64,17 @@ void Board::handleSticks(const sf::Vector2f& mousePos)
 	// Erase elements using stored iterators
 	for (auto& it : iteratorsToErase)
 	{
+		m_score += (*it)->getScore();
 		m_sticks.erase(it);
+
+	
 	}
+
+}
+
+int Board::getScore() const
+{
+	return m_score;
 }
 
 

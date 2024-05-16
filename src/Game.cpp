@@ -3,7 +3,7 @@
 
 //========================================
 Game::Game(sf::RenderWindow& window)
-	: m_window(window), m_board()
+	: m_window(window), m_board(), m_states()
 {
 }
 
@@ -27,6 +27,7 @@ void Game::run()
 		m_window.clear();
 
 		m_board.draw(m_window);
+		m_states.draw(m_window);
 
 		m_window.display();
 
@@ -46,9 +47,12 @@ void Game::run()
 				// handle buttons TODO
 
 				this->m_board.handleSticks(mousePos);
+				
 
 			}
 		}
+
+		this->m_states.update(m_board.getScore());
 	}
 }
 
