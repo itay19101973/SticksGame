@@ -24,3 +24,4 @@ private:
 	sf::Sprite m_bgImg;
 	
 };
+

@@ -1,6 +1,7 @@
 #include "Controller.h"
 
-Controller::Controller() : m_menu()
+Controller::Controller()
+	: m_menu()
 {
 }
 

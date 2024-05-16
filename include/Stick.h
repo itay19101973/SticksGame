@@ -17,10 +17,12 @@ public:
 	bool isClicked(const sf::Vector2f& mousePos) const;
 	bool isIntersect(const std::shared_ptr<Stick>& other) const;
 	void updateBlockers(std::shared_ptr<Stick> stickToRemove);
+	int getScore() const;
 
 private:
 	sf::RectangleShape m_stick;
 	std::vector<std::shared_ptr<Stick>> m_blocking;
 	sf::Vector2f m_endPoint;
+	int m_score;
 	
 };

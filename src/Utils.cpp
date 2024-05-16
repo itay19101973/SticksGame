@@ -41,3 +41,34 @@ bool doIntersect(Point p1, Point q1, Point p2, Point q2)
 
     return false;
 }
+
+
+int getScore(const sf::Color& color)
+{
+    if (color == sf::Color::White)
+    {
+        return 10;
+    }
+    else if (color == sf::Color::Green)
+    {
+        return 8;
+    }
+    else if (color == sf::Color::Yellow)
+    {
+        return 5;
+    }
+    else if (color == sf::Color::Red)
+    {
+        return 3;
+    }
+    else if (color == sf::Color::Magenta)
+    {
+        return 2;
+    }
+    else if (color == sf::Color::Blue)
+    {
+        return 1;
+    }
+
+    return 0; // Return 0 for unrecognized colors
+}
