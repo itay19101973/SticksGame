@@ -2,6 +2,16 @@
 
 Controller::Controller() : m_menu()
 {
+	ImageManager& manager = ImageManager::getInstance();
+	this->m_bgImge = sf::Sprite(manager.getImage("Background"));
+}
+
+void Controller::addMenuButtons()
+
+{
+	ImageManager& manager = ImageManager::getInstance();
+	this->m_menu.addButton(std::make_unique<PlayButton>(PLAY_BTN_POS, manager.getImage("PlayButton")), "PlayButton");
+	this->m_menu.addButton(std::make_unique<ExitButton>(EXIT_BTN_POS, manager.getImage("ExitButton")) , "ExitButton");
 }
 
 void Controller::run()
@@ -13,12 +23,17 @@ void Controller::run()
 		WINDOW_MANAGER_HEIGHT),
 		"Sticks");
 
+	addMenuButtons();
+
+
 	window.setFramerateLimit(60);
 	while (window.isOpen())
 	{
 		window.clear();
 
+		window.draw(this->m_bgImge);
 		m_menu.draw(window);
+		
 
 		window.display();
 
