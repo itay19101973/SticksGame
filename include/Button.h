@@ -16,7 +16,7 @@ public:
 	bool isClicked(sf::Vector2f mousePosition) const;
 	void draw(sf::RenderWindow& window) const;
 	bool isFloatedOn(const sf::Vector2f& mousePosition) const;
-	virtual void action(sf::RenderWindow& window) = 0;
+	virtual void action(sf::RenderWindow& window , bool &isPressed) = 0;
 
 
 private:

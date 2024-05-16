@@ -1,18 +1,23 @@
 #include "Game.h"
-#include "Game.h"
+
 
 //========================================
 Game::Game(sf::RenderWindow& window)
-	: m_window(window), m_board()
+	: m_window(window), m_board() 
 {
 }
 
 //=========================================
 // Ctor from file
 Game::Game(sf::RenderWindow& window, const std::string& fileName)
-	: m_window(window)
+	: m_window(window) 
 {
 	auto file(fileName); //TODO
+}
+
+void Game::addGameMenuButtons()
+{
+	//TODO
 }
 
 //==============================================
@@ -20,6 +25,8 @@ void Game::run()
 {
 	sf::Vector2f mousePos;
 	m_window.setFramerateLimit(60);
+
+
 
 
 	while (m_window.isOpen() && !m_board.isEmpty())

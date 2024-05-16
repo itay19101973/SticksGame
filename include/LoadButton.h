@@ -7,7 +7,7 @@ class LoadButton : public Button
 {
 public:
 	using Button::Button;
-	virtual void action(sf::RenderWindow& window);
+	virtual void action(sf::RenderWindow& window , bool &isPressed);
 
 private:
 
