@@ -22,4 +22,5 @@ private:
 	sf::RectangleShape m_stick;
 	std::vector<std::shared_ptr<Stick>> m_blocking;
 	sf::Vector2f m_endPoint;
+	
 };

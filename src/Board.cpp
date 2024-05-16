@@ -58,7 +58,7 @@ void Board::handleSticks(const sf::Vector2f& mousePos)
 	}
 
 	// Erase elements using stored iterators
-	for (auto it : iteratorsToErase)
+	for (auto& it : iteratorsToErase)
 	{
 		m_sticks.erase(it);
 	}

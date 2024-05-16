@@ -13,24 +13,27 @@ Stick::Stick()
 	m_stick.setFillColor(COLOR_SET[color]);
 	m_stick.setRotation(angle);
 	m_stick.setSize(sf::Vector2f( STICK_WIDTH , length ));
-	m_endPoint = sf::Vector2f(pos.x + length * cos(angle * std::numbers::pi / 180),
-								pos.y + length * sin(angle * std::numbers::pi / 180));
-	
+	m_endPoint = sf::Vector2f(pos.x + length * cos(((90 + angle) * std::numbers::pi) / 180),
+								pos.y + length * sin(((90+ angle) * std::numbers::pi) / 180));
 }
 
+//=======================================================
 void Stick::addBlocker(std::shared_ptr<Stick>& blocker)
 {
 	this->m_blocking.push_back(blocker);
 }
 
+//=======================================================
 void Stick::draw(sf::RenderWindow& window)
 {
 	window.draw(m_stick);
+	
 }
 
+//=======================================================
 bool Stick::liftable() const
 {
-	if (this->m_blocking.empty())
+	if (this->m_blocking.size() == 0)
 	{
 		return true;
 	}
@@ -38,6 +41,7 @@ bool Stick::liftable() const
 	return false;
 }
 
+//=======================================================
 bool Stick::isClicked(const sf::Vector2f& mousePos) const
 {
 	const auto transformedPoint = m_stick.getTransform().getInverse().transformPoint(mousePos);
@@ -45,13 +49,22 @@ bool Stick::isClicked(const sf::Vector2f& mousePos) const
 
 }
 
+//=======================================================
 bool Stick::isIntersect(const std::shared_ptr<Stick>& other) const
 {
 	return doIntersect(this->m_stick.getPosition(), this->m_endPoint,
 		other->m_stick.getPosition(), other->m_endPoint);
 }
 
+//=======================================================
 void Stick::updateBlockers(std::shared_ptr<Stick> stickToRemove)
 {
-	//TODO
+	for (auto it = this->m_blocking.begin(); it != this->m_blocking.end(); ++it)
+	{
+		if (*it == stickToRemove)
+		{
+			this->m_blocking.erase(it);
+			break; 
+		}
+	}
 }
