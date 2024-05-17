@@ -43,7 +43,8 @@ void States::draw(sf::RenderWindow& window) const
 void States::update(int score)
 {
 
-	m_timeText.setString("Time: " + std::to_string((int)m_clock.getElapsedTime().asSeconds()));
+	m_timeText.setString("Time: " + std::to_string(m_levelTime - 
+		(int)m_clock.getElapsedTime().asSeconds()));
 
 	m_scoreText.setString("Score: " + std::to_string(score));
 
