@@ -15,6 +15,7 @@ Game::Game(sf::RenderWindow& window, const std::string& fileName)
 	auto file(fileName); //TODO
 }
 
+
 void Game::addGameMenuButtons()
 {
 	//TODO

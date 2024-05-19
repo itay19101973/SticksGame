@@ -2,8 +2,6 @@
 
 #include <unordered_map>
 #include "Button.h"
-#include "PlayButton.h"
-#include "ExitButton.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <string>
