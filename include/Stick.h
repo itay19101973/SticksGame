@@ -18,6 +18,8 @@ public:
 	bool isIntersect(const std::shared_ptr<Stick>& other) const;
 	void updateBlockers(std::shared_ptr<Stick> stickToRemove);
 	int getScore() const;
+	void blink();
+	void unblink();
 
 	class comperator {
 	public:

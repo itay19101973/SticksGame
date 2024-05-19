@@ -15,6 +15,8 @@ Stick::Stick()
 	m_stick.setSize(sf::Vector2f( STICK_WIDTH , length ));
 	m_endPoint = sf::Vector2f(pos.x + length * cos(((90 + angle) * std::numbers::pi) / 180),
 								pos.y + length * sin(((90+ angle) * std::numbers::pi) / 180));
+	m_stick.setOutlineThickness(1);
+	m_stick.setOutlineColor(sf::Color::White);
 	m_score = getStickScore(m_stick.getFillColor());
 }
 
@@ -73,6 +75,18 @@ void Stick::updateBlockers(std::shared_ptr<Stick> stickToRemove)
 int Stick::getScore() const
 {
 	return m_score;
+}
+
+void Stick::blink()
+{
+	m_stick.setOutlineColor(sf::Color::White);
+	m_stick.setOutlineThickness(5);
+}
+
+void Stick::unblink()
+{
+	m_stick.setOutlineColor(sf::Color::White);
+	m_stick.setOutlineThickness(1);
 }
 
 bool operator==(const Stick& stick1, const Stick& stick2)

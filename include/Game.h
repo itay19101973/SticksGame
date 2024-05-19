@@ -22,6 +22,7 @@ public:
 	Game(sf::RenderWindow& window, const std::string& fileName);
 	void run();
 	void addButtonsToGameMenu();
+	void handleButtonEvents(GameButtonFlags_t& event);
 private:
 	Menu m_menu;
 	sf::RenderWindow& m_window;

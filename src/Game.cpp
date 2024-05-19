@@ -55,12 +55,19 @@ void Game::run()
 				m_menu.handleClicks(mousePos, m_window , buttonEvent);
 
 				this->m_board.handleSticks(mousePos);
+			case sf::Event::MouseMoved:
+
+				sf::Event::MouseMoveEvent mouse = event.mouseMove;
+				mousePos = m_window.mapPixelToCoords({ mouse.x, mouse.y });
+				m_menu.handleFloating(mousePos);
 				
 
 			}
 		}
 
 		this->m_states.update();
+		this->handleButtonEvents(buttonEvent);
+		
 	}
 }
 
@@ -73,5 +80,19 @@ void Game::addButtonsToGameMenu()
 		manager.getImage("PlayButton")  , GAME_MENU_BUTTON_SIZE) , "HintButton");
 	this->m_menu.addButton(std::make_unique<SaveButton>(SAVE_BUTTON_POS, 
 		manager.getImage("PlayButton") , GAME_MENU_BUTTON_SIZE ), "SaveButton");
+}
+
+void Game::handleButtonEvents(GameButtonFlags_t& event)
+{
+	switch (event)
+	{
+	case Hint:
+		this->m_board.showAvilables(m_window);
+		break;
+	default:
+		break;
+	}
+
+	event = None;
 }
 

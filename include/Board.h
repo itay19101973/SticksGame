@@ -15,6 +15,7 @@ public:
 	int getScore() const;
 	int getRemaining() const;
 	int getLifted() const;
+	void showAvilables(sf::RenderWindow& window)const;
 
 private:
 	std::list<std::shared_ptr<Stick>> m_sticks;

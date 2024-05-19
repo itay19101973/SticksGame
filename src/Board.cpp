@@ -37,14 +37,10 @@ Board::Board() : m_score(0), m_numOfSticks(0)
 //========================================================
 void Board::draw(sf::RenderWindow& window) const
 {
-	
-
 	for (const auto& stick : m_sticks)
 	{
 		stick->draw(window);
-	}
-
-	
+	}	
 }
 
 //========================================================
@@ -97,6 +93,27 @@ int Board::getRemaining() const
 int Board::getLifted() const
 {
 	return m_numOfSticks - this->getRemaining();
+}
+
+void Board::showAvilables(sf::RenderWindow& window) const
+{
+	sf::Clock clock;
+
+	int deltaTime = 1;
+
+	for (auto &stick : m_avilables)
+	{
+		stick->blink();
+		stick->draw(window);
+		window.display();
+
+		while ((int)clock.getElapsedTime().asSeconds() < deltaTime)
+		{
+		}
+
+		stick->unblink();
+		clock.restart();
+	}
 }
 
 
