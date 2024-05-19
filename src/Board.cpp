@@ -112,6 +112,7 @@ void Board::showAvilables(sf::RenderWindow& window) const
 		}
 
 		stick->unblink();
+		stick->draw(window);
 		clock.restart();
 	}
 }
@@ -121,8 +122,7 @@ void Board::showAvilables(sf::RenderWindow& window) const
 
 void Board::addToAvilables(const std::shared_ptr<Stick>& stick)
 {
-	auto stick_to_add = stick;
-	this->m_avilables.insert(stick_to_add);
+	this->m_avilables.insert(stick);
 }
 
 //========================================================
