@@ -22,6 +22,7 @@ private:
 	int m_numOfSticks;
 	
 	void updateBlockingSticks(const std::shared_ptr<Stick> stick);
+	std::set<std::shared_ptr<Stick>> m_avilable;
 
 	
 };
