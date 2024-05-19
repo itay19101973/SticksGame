@@ -25,7 +25,7 @@ private:
 	
 	void addToAvilables(const std::shared_ptr<Stick>& stick);
 	void updateBlockingSticks(const std::shared_ptr<Stick> stick);
-	std::set<std::shared_ptr<Stick>, Stick::comperator> m_avilables;
+	std::multiset<std::shared_ptr<Stick>, Stick::comperator> m_avilables;
 
 	
 };

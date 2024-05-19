@@ -18,8 +18,11 @@ public:
 	bool isFloatedOn(const sf::Vector2f& mousePosition) const;
 	virtual void action(sf::RenderWindow& window ) = 0;
 	virtual void action(GameButtonFlags_t& flag) = 0;
+	sf::Vector2f getFloatedSize();
+	sf::Vector2f getDefSize();
 
 
 private:
 	sf::Sprite m_sprite;
+	sf::Vector2f m_defSize, m_floatedSize;
 };
