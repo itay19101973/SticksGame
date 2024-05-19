@@ -2,7 +2,7 @@
 
 void LoadButton::action(sf::RenderWindow& window)
 {
-	std::ifstream gameFile("Board.txt");
+	std::ifstream gameFile("../resources/Board.txt");
 	std::list<std::shared_ptr<Stick>> sticks;
 	int numOfSticks,
 		time,
@@ -14,6 +14,7 @@ void LoadButton::action(sf::RenderWindow& window)
 	
 	this->createStickContainer(gameFile, sticks);
 
+	gameFile.close();
 	// Create a board from sticks //TODO
 	Board board(numOfSticks, sticks);
 

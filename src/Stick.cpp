@@ -3,28 +3,31 @@
 
 Stick::Stick()
 {
-	sf::Vector2f pos =sf::Vector2f ( OFFSET + rand() % (WINDOW_MANAGER_WIDTH - 2 * OFFSET) ,
-				OFFSET + rand() % (WINDOW_MANAGER_HEIGHT - 2 * OFFSET) );
-	int angle = rand() % 180,
-		color = rand() % COLOR_NUMBER,
-		length = (rand() % 100) + 300;
 
-	m_stick.setPosition(pos);
-	m_stick.setFillColor(COLOR_SET[color]);
-	m_stick.setRotation(angle);
-	m_stick.setSize(sf::Vector2f( STICK_WIDTH , length ));
-	m_endPoint = sf::Vector2f(pos.x + length * cos(((90 + angle) * std::numbers::pi) / 180),
-								pos.y + length * sin(((90+ angle) * std::numbers::pi) / 180));
-	m_stick.setOutlineThickness(1);
-	m_stick.setOutlineColor(sf::Color::White);
-	m_stick.setOutlineThickness(1);
-	m_stick.setOutlineColor(sf::Color::White);
-	m_score = getStickScore(m_stick.getFillColor());
+	this->getRandomVals();
+
+	this->setData(m_data);
+}
+
+//=======================================================
+void Stick::getRandomVals()
+{
+	m_data.m_pos = sf::Vector2f(OFFSET + rand() % (WINDOW_MANAGER_WIDTH - 2 * OFFSET),
+		OFFSET + rand() % (WINDOW_MANAGER_HEIGHT - 2 * OFFSET));
+	m_data.m_angle = rand() % 180;
+	m_data.m_color = rand() % COLOR_NUMBER;
+	m_data.m_length = (rand() % 100) + 300;
 }
 
 
 //=======================================================
 Stick::Stick(const StickData& data)
+{
+
+	this->setData(data);
+}
+
+void Stick::setData(const StickData& data)
 {
 	m_stick.setPosition(sf::Vector2f(data.m_pos.x, data.m_pos.y));
 	m_stick.setFillColor(COLOR_SET[data.m_color]);
@@ -32,7 +35,7 @@ Stick::Stick(const StickData& data)
 	m_stick.setSize(sf::Vector2f(STICK_WIDTH, data.m_length));
 	m_endPoint = sf::Vector2f(data.m_pos.x + data.m_length *
 		cos(((90 + data.m_angle) * std::numbers::pi) / 180),
-		data.m_pos.y + data.m_length * 
+		data.m_pos.y + data.m_length *
 		sin(((90 + data.m_angle) * std::numbers::pi) / 180));
 	m_stick.setOutlineThickness(1);
 	m_stick.setOutlineColor(sf::Color::White);
@@ -107,6 +110,12 @@ void Stick::unblink()
 	m_stick.setOutlineColor(sf::Color::White);
 	m_stick.setOutlineThickness(1);
 }
+
+const StickData& Stick::getData() const
+{
+	return this->m_data;
+}
+
 
 bool operator==(const Stick& stick1, const Stick& stick2)
 {

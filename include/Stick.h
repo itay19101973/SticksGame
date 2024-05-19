@@ -21,6 +21,7 @@ public:
 	int getScore() const;
 	void blink();
 	void unblink();
+	const StickData& getData() const;
 
 	class comperator {
 	public:
@@ -33,6 +34,10 @@ private:
 	std::vector<std::shared_ptr<Stick>> m_blocking;
 	sf::Vector2f m_endPoint;
 	int m_score;
+	StickData m_data;
+
+	void getRandomVals();
+	void setData(const StickData& data);
 	
 };
 

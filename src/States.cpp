@@ -47,6 +47,7 @@ void States::draw(sf::RenderWindow& window) const
 	window.draw(m_scoreText);
 	window.draw(m_liftedText);
 	window.draw(m_remainingText);
+	window.draw(m_liftableText);
 
 
 }
@@ -68,15 +69,27 @@ void States::update()
 	this->m_liftedText.setString("Lifted\n" 
 		+ std::to_string(m_board.getLifted()));
 
-	
-	/* ADD AFTER CREATING HINT AND LIFTABLE VECTOR // TODO
-	this->m_liftableText.setString("Liftable: " + std::to_string(m_board.getLiftable()));*/
+	this->m_liftableText.setString("Liftable: " + 
+		std::to_string(m_board.getLiftable()));
 
 	
 
 }
 
+//======================================================
 int& States::ScoreRef()
 {
 	return m_score;
+}
+
+//======================================================
+int States::getScore() const
+{
+	return m_score;
+}
+
+//======================================================
+int States::getTime() const
+{
+	return this->m_levelTime - (int)m_clock.getElapsedTime().asSeconds();
 }

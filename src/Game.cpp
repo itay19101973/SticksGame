@@ -94,10 +94,27 @@ void Game::handleButtonEvents(GameButtonFlags_t& event)
 	case Hint:
 		this->m_board.showAvilables(m_window);
 		break;
+	case Save:
+		this->saveGame();
+		break;
 	default:
 		break;
 	}
 
 	event = None;
+}
+
+//========================================
+void Game::saveGame() const
+{
+	std::ofstream gameFile("../resources/Board.txt");
+
+	gameFile << this->m_board.getOgNumOfSticks() << "\n" <<
+		this->m_states.getTime() << " " << this->m_states.getScore() << "\n";
+
+	this->m_board.writeSticksData(gameFile);
+
+	gameFile.close();
+	
 }
 

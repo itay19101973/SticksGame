@@ -103,6 +103,19 @@ int Board::getLifted() const
 	return m_numOfSticks - this->getRemaining();
 }
 
+//========================================================
+int Board::getOgNumOfSticks() const
+{
+	return this->m_numOfSticks;
+}
+
+//========================================================
+int Board::getLiftable() const
+{
+	return this->m_avilables.size();
+}
+
+//========================================================
 void Board::showAvilables(sf::RenderWindow& window) const
 {
 	sf::Clock clock;
@@ -125,9 +138,21 @@ void Board::showAvilables(sf::RenderWindow& window) const
 	}
 }
 
+//========================================================
+void Board::writeSticksData(std::ofstream& gameFile) const
+{
+	for (const auto& stick : this->m_sticks)
+	{
+		StickData data = stick->getData();
+
+		gameFile << data.m_pos.x << " " << data.m_pos.y << " "
+			<< data.m_color << " " << data.m_angle << " " <<
+			data.m_length << "\n";
+	}
+}
 
 
-
+//========================================================
 void Board::addToAvilables(const std::shared_ptr<Stick>& stick)
 {
 	this->m_avilables.insert(stick);

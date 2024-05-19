@@ -14,6 +14,9 @@ public:
 	void draw(sf::RenderWindow& window) const;
 	void update();
 	int& ScoreRef();
+	int getScore() const;
+	int getTime() const;
+	
 
 private:
 	int m_score;

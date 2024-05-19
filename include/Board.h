@@ -5,6 +5,7 @@
 #include <memory>
 #include "Stick.h"
 #include "Utils.h"
+#include <fstream>
 
 class Board {
 public:
@@ -17,7 +18,11 @@ public:
 					int& score);
 	int getRemaining() const;
 	int getLifted() const;
+	int getOgNumOfSticks() const;
+	int getLiftable() const;
+
 	void showAvilables(sf::RenderWindow& window)const;
+	void writeSticksData(std::ofstream& gameFile) const;
 
 private:
 	std::list<std::shared_ptr<Stick>> m_sticks;
