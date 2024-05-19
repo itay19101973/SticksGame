@@ -38,6 +38,13 @@ Board::Board(int numOfSticks,
 	std::list<std::shared_ptr<Stick>>& sticks)
 	: m_numOfSticks(numOfSticks), m_sticks(sticks)
 {
+	for (const auto& stick : m_sticks)
+	{
+		if (stick->liftable())
+		{
+			addToAvilables(stick);
+		}
+	}
 }
 
 //========================================================

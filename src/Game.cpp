@@ -56,7 +56,7 @@ void Game::run()
 
 				m_menu.handleClicks(mousePos, m_window , buttonEvent);
 
-				this->m_board.handleSticks(mousePos);
+				this->m_board.handleSticks(mousePos, this->m_states.ScoreRef());
 			case sf::Event::MouseMoved:
 
 				sf::Event::MouseMoveEvent mouse = event.mouseMove;
@@ -64,7 +64,7 @@ void Game::run()
 				m_menu.handleFloating(mousePos);
 				
 
-				this->m_board.handleSticks(mousePos, this->m_states.ScoreRef());
+				
 				
 
 			}

@@ -21,11 +21,8 @@ void LoadButton::action(sf::RenderWindow& window)
 	// Create a game from states and board
 	auto game = Game(window, board, time, score);
 
-	auto game = Game(window, "Board.txt");
 	game.run();
-}
 
-	game.run();
 }
 
 void LoadButton::createStickContainer(std::ifstream& gameFile, 
