@@ -55,16 +55,16 @@ void States::draw(sf::RenderWindow& window) const
 void States::update()
 {
 
-	this->m_timeText.setString("Time:\n" + std::to_string(m_levelTime - 
+	this->m_timeText.setString("Time\n" + std::to_string(m_levelTime - 
 		(int)m_clock.getElapsedTime().asSeconds()));
 
-	this->m_scoreText.setString("Score:\n" 
+	this->m_scoreText.setString("Score\n" 
 		+ std::to_string(m_board.getScore()));
 
-	this->m_remainingText.setString("Remaining:\n" 
+	this->m_remainingText.setString("Remain\n" 
 		+ std::to_string(m_board.getRemaining()));
 
-	this->m_liftedText.setString("Lifted:\n" 
+	this->m_liftedText.setString("Lifted\n" 
 		+ std::to_string(m_board.getLifted()));
 
 	

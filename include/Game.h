@@ -20,7 +20,6 @@ public:
 
 	Game(sf::RenderWindow& window);
 	Game(sf::RenderWindow& window, const std::string& fileName);
-	void addGameMenuButtons();
 	void run();
 	void addButtonsToGameMenu();
 private:

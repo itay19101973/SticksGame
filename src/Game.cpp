@@ -16,11 +16,6 @@ Game::Game(sf::RenderWindow& window, const std::string& fileName)
 }
 
 
-void Game::addGameMenuButtons()
-{
-	//TODO
-}
-
 //==============================================
 void Game::run()
 {
