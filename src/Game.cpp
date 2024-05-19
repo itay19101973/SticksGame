@@ -3,23 +3,18 @@
 
 //========================================
 Game::Game(sf::RenderWindow& window)
-	: m_window(window), m_board(), m_states()
+	: m_window(window), m_board(), m_states(m_board)
 {
 }
 
 //=========================================
 // Ctor from file
 Game::Game(sf::RenderWindow& window, const std::string& fileName)
-	: m_window(window) 
+	: m_window(window), m_board(), m_states(m_board)
 {
 	auto file(fileName); //TODO
 }
 
-
-void Game::addGameMenuButtons()
-{
-	//TODO
-}
 
 //==============================================
 void Game::run()
@@ -63,7 +58,7 @@ void Game::run()
 			}
 		}
 
-		this->m_states.update(m_board.getScore());
+		this->m_states.update();
 	}
 }
 

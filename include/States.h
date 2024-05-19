@@ -2,15 +2,17 @@
 
 #include <SFML/Graphics.hpp>
 #include "Settings.h"
+#include "Board.h"
+
 
 class States {
 public:
-	States();
+	States(const Board& board);
 
 	void setText(sf::Text& text);
 
 	void draw(sf::RenderWindow& window) const;
-	void update(int score);
+	void update();
 
 private:
 	sf::Vector2f m_position;
@@ -19,6 +21,13 @@ private:
 	sf::Font m_font;
 
 	sf::Text m_scoreText,
-		m_timeText;
+		m_timeText,
+		m_remainingText,
+		m_liftableText,
+		m_liftedText;
+
+	const Board& m_board;
+
+	
 
 };

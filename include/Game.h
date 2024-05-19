@@ -10,6 +10,7 @@
 #include "HintButton.h"
 #include "SaveButton.h"
 #include "Settings.h"
+#include "States.h"
 
 
 
@@ -19,7 +20,6 @@ public:
 
 	Game(sf::RenderWindow& window);
 	Game(sf::RenderWindow& window, const std::string& fileName);
-	void addGameMenuButtons();
 	void run();
 	void addButtonsToGameMenu();
 private:
