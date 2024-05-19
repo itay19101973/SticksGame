@@ -1,11 +1,11 @@
 #include "Board.h"
 
 //========================================================
-Board::Board() : m_score(0)
+Board::Board() : m_score(0), m_numOfSticks(0)
 {
-	int numOfSticks = (rand() % 10) + MIN_NUM_OF_STICKS;
+	this->m_numOfSticks = (rand() % 10) + MIN_NUM_OF_STICKS;
 
-	for (int i = 0; i < numOfSticks; i++)
+	for (int i = 0; i < m_numOfSticks; i++)
 	{
 		auto stick = std::make_shared<Stick>();
 		
@@ -45,7 +45,6 @@ bool Board::isEmpty() const
 }
 
 //========================================================
-// TO DEBUG
 void Board::handleSticks(const sf::Vector2f& mousePos)
 {
 	// Create a list to store iterators of elements to be erased
@@ -72,9 +71,23 @@ void Board::handleSticks(const sf::Vector2f& mousePos)
 
 }
 
+//========================================================
 int Board::getScore() const
 {
 	return m_score;
+}
+
+//========================================================
+int Board::getRemaining() const
+{
+	return m_sticks.size();
+}
+
+
+//========================================================
+int Board::getLifted() const
+{
+	return m_numOfSticks - this->getRemaining();
 }
 
 

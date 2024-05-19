@@ -6,6 +6,7 @@
 #include <fstream>
 #include "Board.h"
 #include "Menu.h"
+#include "States.h"
 
 
 
