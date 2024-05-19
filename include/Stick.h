@@ -26,3 +26,7 @@ private:
 	int m_score;
 	
 };
+
+bool operator==(const Stick& stick1, const Stick& stick2);
+bool operator<(const Stick& stick1, const Stick& stick2);
+bool operator<=(const Stick& stick1, const Stick& stick2);

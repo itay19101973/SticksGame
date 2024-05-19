@@ -74,3 +74,20 @@ int Stick::getScore() const
 {
 	return m_score;
 }
+
+bool operator==(const Stick& stick1, const Stick& stick2)
+{
+	return stick1.getScore() == stick2.getScore();
+}
+
+bool operator<(const Stick& stick1, const Stick& stick2)
+{
+	return stick1.getScore() < stick2.getScore();
+}
+
+bool operator<=(const Stick& stick1, const Stick& stick2)
+{
+	return (stick1 < stick2) || (stick1 == stick2);
+}
+
+
