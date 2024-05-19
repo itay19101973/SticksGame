@@ -7,7 +7,7 @@
 class Button
 {
 public:
-	Button(sf::Vector2f position, const sf::Texture& texture);
+	Button(sf::Vector2f position, const sf::Texture& texture , sf::Vector2f scale);
 	virtual ~Button() = default;
 
 	const sf::Sprite& getSprite() const;

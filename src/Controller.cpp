@@ -11,8 +11,10 @@ void Controller::addMenuButtons()
 
 {
 	ImageManager& manager = ImageManager::getInstance();
-	this->m_menu.addButton(std::make_unique<PlayButton>(PLAY_BTN_POS, manager.getImage("PlayButton")), "PlayButton");
-	this->m_menu.addButton(std::make_unique<ExitButton>(EXIT_BTN_POS, manager.getImage("ExitButton")) , "ExitButton");
+	this->m_menu.addButton(std::make_unique<PlayButton>(PLAY_BTN_POS, manager.getImage("PlayButton") ,
+		MENU_BUTTON_DEFA_SIZE), "PlayButton");
+	this->m_menu.addButton(std::make_unique<ExitButton>(EXIT_BTN_POS, manager.getImage("ExitButton") ,
+		MENU_BUTTON_DEFA_SIZE)  , "ExitButton");
 }
 
 void Controller::run()

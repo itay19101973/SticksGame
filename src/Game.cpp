@@ -27,6 +27,8 @@ void Game::run()
 	sf::Vector2f mousePos;
 	m_window.setFramerateLimit(60);
 
+	this->addButtonsToGameMenu();
+
 
 
 
@@ -36,6 +38,7 @@ void Game::run()
 
 		m_board.draw(m_window);
 		m_states.draw(m_window);
+		m_menu.draw(m_window);
 
 		m_window.display();
 
@@ -62,5 +65,16 @@ void Game::run()
 
 		this->m_states.update(m_board.getScore());
 	}
+}
+
+void Game::addButtonsToGameMenu()
+{
+	//TODO - CHANGE FOR THE REAL PICTURES
+	ImageManager& manager = ImageManager::getInstance();
+
+	this->m_menu.addButton(std::make_unique<HintButton>(HINT_BUTTON_POS,
+		manager.getImage("PlayButton")  , GAME_MENU_BUTTON_SIZE) , "HintButton");
+	this->m_menu.addButton(std::make_unique<SaveButton>(SAVE_BUTTON_POS, 
+		manager.getImage("PlayButton") , GAME_MENU_BUTTON_SIZE ), "SaveButton");
 }
 

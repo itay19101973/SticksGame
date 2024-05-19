@@ -46,7 +46,7 @@ void Menu::handleFloating(const sf::Vector2f& mousePos)
 		}
 		else
 		{
-			btn->scale(BUTTON_DEFA_SIZE);
+			btn->scale(MENU_BUTTON_DEFA_SIZE);
 		}
 	}
 }
