@@ -19,10 +19,19 @@ Board::Board() : m_numOfSticks(0)
 		}
 
 
-		m_sticks.push_back(stick);
-
-		
+		m_sticks.push_back(stick);	
 	}
+
+	for (const auto &stick : m_sticks)
+	{
+		if (stick ->liftable())
+		{
+			addToAvilables(stick);
+		}
+	}
+
+
+
 }
 
 Board::Board(int numOfSticks,
@@ -34,14 +43,10 @@ Board::Board(int numOfSticks,
 //========================================================
 void Board::draw(sf::RenderWindow& window) const
 {
-	
-
 	for (const auto& stick : m_sticks)
 	{
 		stick->draw(window);
-	}
-
-	
+	}	
 }
 
 //========================================================
@@ -91,8 +96,35 @@ int Board::getLifted() const
 	return m_numOfSticks - this->getRemaining();
 }
 
+void Board::showAvilables(sf::RenderWindow& window) const
+{
+	sf::Clock clock;
+
+	int deltaTime = 1;
+
+	for (auto &stick : m_avilables)
+	{
+		stick->blink();
+		stick->draw(window);
+		window.display();
+
+		while ((int)clock.getElapsedTime().asSeconds() < deltaTime)
+		{
+		}
+
+		stick->unblink();
+		stick->draw(window);
+		clock.restart();
+	}
+}
 
 
+
+
+void Board::addToAvilables(const std::shared_ptr<Stick>& stick)
+{
+	this->m_avilables.insert(stick);
+}
 
 //========================================================
 void Board::updateBlockingSticks(const std::shared_ptr<Stick> stick)

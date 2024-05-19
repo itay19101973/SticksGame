@@ -19,6 +19,14 @@ public:
 	bool isIntersect(const std::shared_ptr<Stick>& other) const;
 	void updateBlockers(std::shared_ptr<Stick> stickToRemove);
 	int getScore() const;
+	void blink();
+	void unblink();
+
+	class comperator {
+	public:
+		bool operator()(const std::shared_ptr<Stick>& stick1,
+			const std::shared_ptr<Stick>& stick2) const;
+	};
 
 private:
 	sf::RectangleShape m_stick;
@@ -27,3 +35,7 @@ private:
 	int m_score;
 	
 };
+
+bool operator==(const Stick& stick1, const Stick& stick2);
+bool operator<(const Stick& stick1, const Stick& stick2);
+bool operator<=(const Stick& stick1, const Stick& stick2);

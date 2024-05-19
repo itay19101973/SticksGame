@@ -17,12 +17,15 @@ public:
 					int& score);
 	int getRemaining() const;
 	int getLifted() const;
+	void showAvilables(sf::RenderWindow& window)const;
 
 private:
 	std::list<std::shared_ptr<Stick>> m_sticks;
 	int m_numOfSticks;
 	
+	void addToAvilables(const std::shared_ptr<Stick>& stick);
 	void updateBlockingSticks(const std::shared_ptr<Stick> stick);
+	std::set<std::shared_ptr<Stick>, Stick::comperator> m_avilables;
 
 	
 };

@@ -1,6 +1,6 @@
 #include "LoadButton.h"
 
-void LoadButton::action(sf::RenderWindow& window, bool &isPressed)
+void LoadButton::action(sf::RenderWindow& window)
 {
 	std::ifstream gameFile("Board.txt");
 	std::list<std::shared_ptr<Stick>> sticks;
@@ -20,6 +20,10 @@ void LoadButton::action(sf::RenderWindow& window, bool &isPressed)
 	
 	// Create a game from states and board
 	auto game = Game(window, board, time, score);
+
+	auto game = Game(window, "Board.txt");
+	game.run();
+}
 
 	game.run();
 }
@@ -50,4 +54,7 @@ std::shared_ptr<Stick> LoadButton::readStickData(std::string& line)
 	auto stick = std::make_unique<Stick>(data);
 
 	return stick;
+}
+void LoadButton::action(GameButtonFlags_t& flag)
+{
 }

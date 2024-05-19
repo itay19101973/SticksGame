@@ -29,6 +29,8 @@ void Controller::run()
 
 	addMenuButtons();
 
+	GameButtonFlags_t flag = None;
+
 
 	window.setFramerateLimit(60);
 	while (window.isOpen())
@@ -54,7 +56,7 @@ void Controller::run()
 			case sf::Event::MouseButtonReleased:
 
 				mousePos = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
-				m_menu.handleClicks(mousePos, window);
+				m_menu.handleClicks(mousePos, window ,  flag);
 				break;
 
 			case sf::Event::MouseMoved:

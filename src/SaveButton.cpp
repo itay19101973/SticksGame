@@ -1,6 +1,9 @@
 #include "SaveButton.h"
 
-void SaveButton::action(sf::RenderWindow& window, bool& isPressed)
+void SaveButton::action(sf::RenderWindow& window)
 {
-	// TODO
+}
+void SaveButton::action(GameButtonFlags_t& flag)
+{
+	flag = Save;
 }

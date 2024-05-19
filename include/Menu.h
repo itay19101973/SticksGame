@@ -14,7 +14,8 @@ public:
 
 	void addButton(std::unique_ptr<Button> button , std::string name);
 	void draw(sf::RenderWindow& window) const;
-	void handleClicks(const sf::Vector2f& mousePos, sf::RenderWindow& window) const;
+	void handleClicks(const sf::Vector2f& mousePos, sf::RenderWindow& window , 
+				GameButtonFlags_t & flag) const;
 	void handleFloating(const sf::Vector2f& mousePos);
 
 

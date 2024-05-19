@@ -1,7 +1,10 @@
 #include "ExitButton.h"
 
-void ExitButton::action(sf::RenderWindow& window , bool &isPressed) 
+void ExitButton::action(sf::RenderWindow& window )
 {
-	isPressed = true;
 	window.close();
+}
+
+void ExitButton::action(GameButtonFlags_t& flag)
+{
 }

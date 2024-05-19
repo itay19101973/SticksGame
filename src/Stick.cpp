@@ -17,6 +17,8 @@ Stick::Stick()
 								pos.y + length * sin(((90+ angle) * std::numbers::pi) / 180));
 	m_stick.setOutlineThickness(1);
 	m_stick.setOutlineColor(sf::Color::White);
+	m_stick.setOutlineThickness(1);
+	m_stick.setOutlineColor(sf::Color::White);
 	m_score = getStickScore(m_stick.getFillColor());
 }
 
@@ -92,4 +94,37 @@ void Stick::updateBlockers(std::shared_ptr<Stick> stickToRemove)
 int Stick::getScore() const
 {
 	return m_score;
+}
+
+void Stick::blink()
+{
+	m_stick.setOutlineColor(sf::Color::White);
+	m_stick.setOutlineThickness(5);
+}
+
+void Stick::unblink()
+{
+	m_stick.setOutlineColor(sf::Color::White);
+	m_stick.setOutlineThickness(1);
+}
+
+bool operator==(const Stick& stick1, const Stick& stick2)
+{
+	return stick1.getScore() == stick2.getScore();
+}
+
+bool operator<(const Stick& stick1, const Stick& stick2)
+{
+	return stick1.getScore() < stick2.getScore();
+}
+
+bool operator<=(const Stick& stick1, const Stick& stick2)
+{
+	return (stick1 < stick2) || (stick1 == stick2);
+}
+
+bool Stick::comperator::operator()(const std::shared_ptr<Stick>& stick1, 
+	const std::shared_ptr<Stick>& stick2) const
+{
+	return (*stick1) < (*stick2);
 }

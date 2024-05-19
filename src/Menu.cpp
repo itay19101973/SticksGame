@@ -23,14 +23,14 @@ void Menu::draw(sf::RenderWindow& window) const
 
 //======================================================
 void Menu::handleClicks(const sf::Vector2f& mousePos,
-	sf::RenderWindow& window) const
+	sf::RenderWindow& window , GameButtonFlags_t& flag) const
 {
-	bool flag;
 	for (const auto& [name, btn] : this->m_buttons)
 	{
 		if (btn->isClicked(mousePos))
 		{
-			btn->action(window , flag);
+			btn->action(flag);
+			btn->action(window);
 		}
 	}
 }

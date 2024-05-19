@@ -39,6 +39,8 @@ const std::vector<sf::Color> COLOR_SET = { sf::Color::Blue ,
 								sf::Color::Magenta ,
 								sf::Color::White };
 
+enum GameButtonFlags_t{None , Hint , Save };
+
 
 struct StickData {
 	sf::Vector2f m_pos;
