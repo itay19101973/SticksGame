@@ -90,4 +90,8 @@ bool operator<=(const Stick& stick1, const Stick& stick2)
 	return (stick1 < stick2) || (stick1 == stick2);
 }
 
-
+bool Stick::comperator::operator()(const std::shared_ptr<Stick>& stick1, 
+	const std::shared_ptr<Stick>& stick2) const
+{
+	return (*stick1) < (*stick2);
+}

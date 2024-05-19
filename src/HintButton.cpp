@@ -1,6 +1,10 @@
 #include "HintButton.h"
 
-void HintButton::action(sf::RenderWindow& window, bool& isPressed)
+void HintButton::action(sf::RenderWindow& window)
 {
-	//TODO
+}
+
+void HintButton::action(GameButtonFlags_t& flag)
+{
+	flag = Hint;
 }

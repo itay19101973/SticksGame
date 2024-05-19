@@ -24,6 +24,8 @@ void Game::run()
 
 	this->addButtonsToGameMenu();
 
+	GameButtonFlags_t buttonEvent = None;
+
 
 
 
@@ -50,7 +52,7 @@ void Game::run()
 
 				mousePos = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 
-				// handle buttons TODO
+				m_menu.handleClicks(mousePos, m_window , buttonEvent);
 
 				this->m_board.handleSticks(mousePos);
 				

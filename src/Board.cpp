@@ -19,10 +19,17 @@ Board::Board() : m_score(0), m_numOfSticks(0)
 		}
 
 
-		m_sticks.push_back(stick);
-
-		
+		m_sticks.push_back(stick);	
 	}
+
+	for (const auto &stick : m_sticks)
+	{
+		if (stick ->liftable())
+		{
+			addToAvilables(stick);
+		}
+	}
+
 
 
 }
@@ -94,6 +101,12 @@ int Board::getLifted() const
 
 
 
+
+void Board::addToAvilables(const std::shared_ptr<Stick>& stick)
+{
+	auto stick_to_add = stick;
+	this->m_avilables.insert(stick_to_add);
+}
 
 //========================================================
 void Board::updateBlockingSticks(const std::shared_ptr<Stick> stick)

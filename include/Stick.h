@@ -19,6 +19,12 @@ public:
 	void updateBlockers(std::shared_ptr<Stick> stickToRemove);
 	int getScore() const;
 
+	class comperator {
+	public:
+		bool operator()(const std::shared_ptr<Stick>& stick1,
+			const std::shared_ptr<Stick>& stick2) const;
+	};
+
 private:
 	sf::RectangleShape m_stick;
 	std::vector<std::shared_ptr<Stick>> m_blocking;
