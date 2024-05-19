@@ -11,6 +11,7 @@ void LoadButton::action(sf::RenderWindow& window, bool &isPressed)
 
 	// GetStickData and create a vector of sticks
 	gameFile >> numOfSticks >> time >> score;
+	
 	this->createStickContainer(gameFile, sticks);
 
 	// Create a board from sticks //TODO
@@ -26,7 +27,9 @@ void LoadButton::action(sf::RenderWindow& window, bool &isPressed)
 void LoadButton::createStickContainer(std::ifstream& gameFile, 
 	std::list<std::shared_ptr<Stick>>& sticks)
 {
+
 	std::string line;
+	std::getline(gameFile, line);
 
 	while (std::getline(gameFile, line))
 	{
