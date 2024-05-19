@@ -42,11 +42,11 @@ void Menu::handleFloating(const sf::Vector2f& mousePos)
 	{
 		if (btn->isFloatedOn(mousePos))
 		{
-			btn->scale(BUTTON_FLOATED_SIZE);
+			btn->scale(btn -> getFloatedSize());
 		}
 		else
 		{
-			btn->scale(MENU_BUTTON_DEFA_SIZE);
+			btn->scale(btn -> getDefSize());
 		}
 	}
 }
