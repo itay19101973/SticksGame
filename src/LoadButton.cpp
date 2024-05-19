@@ -14,6 +14,7 @@ void LoadButton::action(sf::RenderWindow& window)
 	
 	this->createStickContainer(gameFile, sticks);
 
+	gameFile.close();
 	// Create a board from sticks //TODO
 	Board board(numOfSticks, sticks);
 
