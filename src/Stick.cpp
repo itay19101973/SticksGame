@@ -18,6 +18,20 @@ Stick::Stick()
 	m_score = getStickScore(m_stick.getFillColor());
 }
 
+
+//=======================================================
+Stick::Stick(const StickData& data)
+{
+	m_stick.setPosition(sf::Vector2f(data.m_pos.x, data.m_pos.y));
+	m_stick.setFillColor(COLOR_SET[data.m_color]);
+	m_stick.setRotation(data.m_angle);
+	m_stick.setSize(sf::Vector2f(STICK_WIDTH, data.m_length));
+	m_endPoint = sf::Vector2f(data.m_pos.x + data.m_length *
+		cos(((90 + data.m_angle) * std::numbers::pi) / 180),
+		data.m_pos.y + data.m_length * 
+		sin(((90 + data.m_angle) * std::numbers::pi) / 180));
+}
+
 //=======================================================
 void Stick::addBlocker(std::shared_ptr<Stick>& blocker)
 {

@@ -19,7 +19,10 @@ class Game {
 public:
 
 	Game(sf::RenderWindow& window);
-	Game(sf::RenderWindow& window, const std::string& fileName);
+	Game(sf::RenderWindow& window, 
+		Board& m_board,
+		int time,
+		int score);
 	void run();
 	void addButtonsToGameMenu();
 private:

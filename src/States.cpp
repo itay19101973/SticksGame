@@ -1,7 +1,8 @@
 #include "States.h"
 
-States::States(const Board& board)
-	: m_levelTime(DEFAULT_TIME), m_position(sf::Vector2f(0, 0)), m_clock(),
+States::States(const Board& board, int time, int score)
+	: m_levelTime(time), m_score(score),
+	m_position(sf::Vector2f(0, 0)), m_clock(),
 	m_board(board)
 {
 
@@ -59,7 +60,7 @@ void States::update()
 		(int)m_clock.getElapsedTime().asSeconds()));
 
 	this->m_scoreText.setString("Score\n" 
-		+ std::to_string(m_board.getScore()));
+		+ std::to_string(m_score));
 
 	this->m_remainingText.setString("Remain\n" 
 		+ std::to_string(m_board.getRemaining()));
@@ -73,4 +74,9 @@ void States::update()
 
 	
 
+}
+
+int& States::ScoreRef()
+{
+	return m_score;
 }

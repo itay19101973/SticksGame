@@ -5,6 +5,7 @@
 #include "Settings.h"
 #include "Button.h"
 #include "PlayButton.h"
+#include "LoadButton.h"
 #include "ExitButton.h"
 #include <memory>
 

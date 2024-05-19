@@ -11,6 +11,7 @@ class Stick
 {
 public:
 	Stick();
+	Stick(const StickData& data);
 	void addBlocker(std::shared_ptr<Stick>& blocker);
 	void draw(sf::RenderWindow& window);
 	bool liftable() const;

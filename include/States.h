@@ -7,14 +7,16 @@
 
 class States {
 public:
-	States(const Board& board);
+	States(const Board& board, int time, int score);
 
 	void setText(sf::Text& text);
 
 	void draw(sf::RenderWindow& window) const;
 	void update();
+	int& ScoreRef();
 
 private:
+	int m_score;
 	sf::Vector2f m_position;
 	sf::Clock m_clock;
 	int m_levelTime;

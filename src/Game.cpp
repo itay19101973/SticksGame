@@ -3,16 +3,18 @@
 
 //========================================
 Game::Game(sf::RenderWindow& window)
-	: m_window(window), m_board(), m_states(m_board)
+	: m_window(window), m_board(), m_states(m_board, DEFAULT_TIME, DEFA_SCORE)
 {
 }
 
 //=========================================
 // Ctor from file
-Game::Game(sf::RenderWindow& window, const std::string& fileName)
-	: m_window(window), m_board(), m_states(m_board)
+Game::Game(sf::RenderWindow& window, Board& board,
+	int time,
+	int score)
+	: m_window(window), m_board(board), m_states(m_board, time, score)
 {
-	auto file(fileName); //TODO
+	
 }
 
 
@@ -52,7 +54,7 @@ void Game::run()
 
 				// handle buttons TODO
 
-				this->m_board.handleSticks(mousePos);
+				this->m_board.handleSticks(mousePos, this->m_states.ScoreRef());
 				
 
 			}

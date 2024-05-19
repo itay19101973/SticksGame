@@ -1,0 +1,23 @@
+FILE FORMAT:
+==========first line======
+ORIGINAL_NUMBER_OF_STICKS_IN_THE_LEVEL
+SCORE TIME
+/*STICK1_DATA*/ POS COLOR_NUM ANGLE LENGTH
+/*STICK2_DATA*/ POS COLOR_NUM ANGLE LENGTH
+.
+.
+.
+/*STICK_N_DATA*/: POS COLOR_NUM ANGLE LENGTH
+=========last line=========
+
+Example:
+==========first line======
+30
+15 30 
+20 30 1 90 350
+50 100 2 43 301
+.
+.
+.
+320 419 3 119 399
+=========last line=========

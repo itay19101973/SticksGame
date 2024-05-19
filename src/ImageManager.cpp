@@ -3,6 +3,7 @@
 ImageManager::ImageManager()
 {
     this->loadImage("PlayButton", "PlayButton.png");
+    this->loadImage("LoadButton", "LoadButton.png");
     this->loadImage("ExitButton", "ExitButton.png");
     this->loadImage("Background", "Background.png");
 

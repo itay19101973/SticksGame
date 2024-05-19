@@ -1,7 +1,7 @@
 #include "Board.h"
 
 //========================================================
-Board::Board() : m_score(0), m_numOfSticks(0)
+Board::Board() : m_numOfSticks(0)
 {
 	this->m_numOfSticks = (rand() % 10) + MIN_NUM_OF_STICKS;
 
@@ -25,6 +25,12 @@ Board::Board() : m_score(0), m_numOfSticks(0)
 	}
 }
 
+Board::Board(int numOfSticks,
+	std::list<std::shared_ptr<Stick>>& sticks)
+	: m_numOfSticks(numOfSticks), m_sticks(sticks)
+{
+}
+
 //========================================================
 void Board::draw(sf::RenderWindow& window) const
 {
@@ -45,7 +51,8 @@ bool Board::isEmpty() const
 }
 
 //========================================================
-void Board::handleSticks(const sf::Vector2f& mousePos)
+void Board::handleSticks(const sf::Vector2f& mousePos,
+						int& score)
 {
 	// Create a list to store iterators of elements to be erased
 	std::list<std::list<std::shared_ptr<Stick>>::iterator> iteratorsToErase;
@@ -63,18 +70,12 @@ void Board::handleSticks(const sf::Vector2f& mousePos)
 	// Erase elements using stored iterators
 	for (auto& it : iteratorsToErase)
 	{
-		m_score += (*it)->getScore();
+		score += (*it)->getScore();
 		m_sticks.erase(it);
 
 	
 	}
 
-}
-
-//========================================================
-int Board::getScore() const
-{
-	return m_score;
 }
 
 //========================================================
