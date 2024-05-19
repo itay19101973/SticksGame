@@ -113,6 +113,7 @@ void Board::showAvilables(sf::RenderWindow& window) const
 
 		stick->unblink();
 		stick->draw(window);
+		window.display();
 		clock.restart();
 	}
 }
