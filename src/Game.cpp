@@ -107,7 +107,7 @@ void Game::handleButtonEvents(GameButtonFlags_t& event)
 //========================================
 void Game::saveGame() const
 {
-	std::ofstream gameFile("../resources/Board.txt");
+	std::ofstream gameFile("Board.txt");
 
 	gameFile << this->m_board.getOgNumOfSticks() << "\n" <<
 		this->m_states.getTime() << " " << this->m_states.getScore() << "\n";

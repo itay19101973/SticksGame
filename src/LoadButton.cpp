@@ -2,7 +2,7 @@
 
 void LoadButton::action(sf::RenderWindow& window)
 {
-	std::ifstream gameFile("../resources/Board.txt");
+	std::ifstream gameFile("Board.txt");
 	std::list<std::shared_ptr<Stick>> sticks;
 	int numOfSticks,
 		time,

@@ -21,7 +21,7 @@ void Stick::getRandomVals()
 
 
 //=======================================================
-Stick::Stick(const StickData& data)
+Stick::Stick(const StickData& data) : m_data(data)
 {
 
 	this->setData(data);

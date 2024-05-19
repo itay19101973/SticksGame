@@ -69,7 +69,7 @@ void States::update()
 	this->m_liftedText.setString("Lifted\n" 
 		+ std::to_string(m_board.getLifted()));
 
-	this->m_liftableText.setString("Liftable: " + 
+	this->m_liftableText.setString("Liftable\n" + 
 		std::to_string(m_board.getLiftable()));
 
 	
