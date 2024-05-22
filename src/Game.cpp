@@ -3,7 +3,7 @@
 
 //========================================
 Game::Game(sf::RenderWindow& window)
-	: m_window(window), m_board(), m_states(m_board, DEFAULT_TIME, DEFA_SCORE)
+	: m_window(window), m_stickContainer(), m_states(m_stickContainer, DEFAULT_TIME, DEFA_SCORE)
 {
 }
 
@@ -12,7 +12,7 @@ Game::Game(sf::RenderWindow& window)
 Game::Game(sf::RenderWindow& window, StickContainer& board,
 	int time,
 	int score)
-	: m_window(window), m_board(board), m_states(m_board, time, score)
+	: m_window(window), m_stickContainer(board), m_states(m_stickContainer, time, score)
 {
 	
 }
@@ -27,15 +27,16 @@ void Game::run()
 	this->addButtonsToGameMenu();
 
 	GameButtonFlags_t buttonEvent = None;
+	bool win = false;
 
 
 
 
-	while (m_window.isOpen() && !m_board.isEmpty())
+	while (m_window.isOpen() && m_states.getTime() > 0 && !win)
 	{
 		m_window.clear();
 
-		m_board.draw(m_window);
+		m_stickContainer.draw(m_window);
 		m_states.draw(m_window);
 		m_menu.draw(m_window);
 
@@ -56,23 +57,19 @@ void Game::run()
 
 				m_menu.handleClicks(mousePos, m_window , buttonEvent);
 
-				this->m_board.handleSticks(mousePos, this->m_states.ScoreRef() , m_window);
+				this->m_stickContainer.handleSticks(mousePos, this->m_states.ScoreRef() , m_window);
 			case sf::Event::MouseMoved:
 
 				sf::Event::MouseMoveEvent mouse = event.mouseMove;
 				mousePos = m_window.mapPixelToCoords({ mouse.x, mouse.y });
 				m_menu.handleFloating(mousePos);
-				
-
-				
-				
-
+			
 			}
 		}
 
 		this->m_states.update();
 		this->handleButtonEvents(buttonEvent);
-		
+		this->checkWin(win);
 	}
 }
 
@@ -92,7 +89,7 @@ void Game::handleButtonEvents(GameButtonFlags_t& event)
 	switch (event)
 	{
 	case Hint:
-		this->m_board.showAvilables(m_window);
+		this->m_stickContainer.showAvilables(m_window);
 		break;
 	case Save:
 		this->saveGame();
@@ -109,13 +106,21 @@ void Game::saveGame() const
 {
 	std::ofstream gameFile("Board.txt");
 
-	gameFile << this->m_board.getOgNumOfSticks() << "\n" <<
+	gameFile << this->m_stickContainer.getOgNumOfSticks() << "\n" <<
 		this->m_states.getTime() << " " << this->m_states.getScore() << "\n";
 
-	this->m_board.writeSticksData(gameFile);
+	this->m_stickContainer.writeSticksData(gameFile);
 
 	gameFile.close();
 	
+}
+
+void Game::checkWin(bool& win)
+{
+	if (m_stickContainer.isEmpty())
+	{
+		win = true;
+	}
 }
 
 void Game::showEndScreen(bool win) const

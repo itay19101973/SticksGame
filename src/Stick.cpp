@@ -58,12 +58,7 @@ void Stick::draw(sf::RenderWindow& window)
 //=======================================================
 bool Stick::liftable() const
 {
-	if (this->m_blocking.size() == 0)
-	{
-		return true;
-	}
-
-	return false;
+	return m_blocking.empty();
 }
 
 //=======================================================
