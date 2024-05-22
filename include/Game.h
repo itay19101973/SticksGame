@@ -36,5 +36,5 @@ private:
 	States m_states;
 	
 	void saveGame() const;
-	
+	void checkWin(bool& win);
 };

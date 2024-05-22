@@ -27,11 +27,12 @@ void Game::run()
 	this->addButtonsToGameMenu();
 
 	GameButtonFlags_t buttonEvent = None;
+	bool win = false;
 
 
 
 
-	while (m_window.isOpen() && !m_stickContainer.isEmpty())
+	while (m_window.isOpen() && m_states.getTime() > 0 && !win)
 	{
 		m_window.clear();
 
@@ -68,7 +69,7 @@ void Game::run()
 
 		this->m_states.update();
 		this->handleButtonEvents(buttonEvent);
-		
+		this->checkWin(win);
 	}
 }
 
@@ -112,5 +113,13 @@ void Game::saveGame() const
 
 	gameFile.close();
 	
+}
+
+void Game::checkWin(bool& win)
+{
+	if (m_stickContainer.isEmpty())
+	{
+		win = true;
+	}
 }
 
