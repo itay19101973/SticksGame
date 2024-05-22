@@ -116,6 +116,24 @@ const StickData& Stick::getData() const
 	return this->m_data;
 }
 
+void Stick::blinkBlocker()
+{
+	int cell = m_blocking.size() - 1;
+	m_blocking[cell]->blink();
+}
+
+void Stick::unblinkBlocker()
+{
+	int cell = m_blocking.size() - 1;
+	m_blocking[cell]->unblink();
+}
+
+void Stick::drawTopBlocker(sf::RenderWindow & window) const
+{
+	int cell = m_blocking.size() - 1;
+	m_blocking[cell]->draw(window);
+}
+
 
 bool operator==(const Stick& stick1, const Stick& stick2)
 {

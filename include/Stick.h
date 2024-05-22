@@ -22,6 +22,9 @@ public:
 	void blink();
 	void unblink();
 	const StickData& getData() const;
+	void blinkBlocker();
+	void unblinkBlocker();
+	void drawTopBlocker(sf::RenderWindow& window)const;
 
 	class comperator {
 	public:

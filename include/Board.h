@@ -7,6 +7,8 @@
 #include "Utils.h"
 #include <fstream>
 
+
+
 class Board {
 public:
 	Board();
@@ -15,7 +17,7 @@ public:
 	void draw(sf::RenderWindow& window) const;
 	bool isEmpty() const;
 	void handleSticks(const sf::Vector2f& mousePos,
-					int& score);
+					int& score , sf::RenderWindow& window);
 	int getRemaining() const;
 	int getLifted() const;
 	int getOgNumOfSticks() const;
@@ -30,6 +32,7 @@ private:
 	
 	void addToAvilables(const std::shared_ptr<Stick>& stick);
 	void updateBlockingSticks(const std::shared_ptr<Stick> stick);
+	void showBlocker( std::shared_ptr<Stick>& stick , sf::RenderWindow& window);
 	std::multiset<std::shared_ptr<Stick>, Stick::comperator> m_avilables;
 
 	

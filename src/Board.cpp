@@ -64,18 +64,32 @@ bool Board::isEmpty() const
 
 //========================================================
 void Board::handleSticks(const sf::Vector2f& mousePos,
-						int& score)
+						int& score , sf::RenderWindow& window)
 {
 	// Create a list to store iterators of elements to be erased
 	std::list<std::list<std::shared_ptr<Stick>>::iterator> iteratorsToErase;
 
 	// Iterate over the list of sticks
+	bool canLift = false;
 	for (auto it = m_sticks.begin(); it != m_sticks.end(); ++it)
 	{
 		if ((*it)->isClicked(mousePos) && (*it)->liftable())
 		{
+			canLift= true;
 			this->updateBlockingSticks(*it);
-			iteratorsToErase.push_back(it); // Store iterator to be erased later
+			iteratorsToErase.push_back(it); // Store iterator to be erased later	
+		}
+	}
+	// cant pick anyone to lift , draw a blocker
+	if (!canLift)
+	{
+		for (auto it = m_sticks.rbegin(); it != m_sticks.rend(); ++it)
+		{
+			if ((*it)->isClicked(mousePos))
+			{
+				this->showBlocker(*it, window);
+				break;
+			}
 		}
 	}
 
@@ -166,4 +180,23 @@ void Board::updateBlockingSticks(const std::shared_ptr<Stick> stick)
 	{
 		(*it)->updateBlockers(stick);
 	}
+}
+
+void Board::showBlocker(std::shared_ptr<Stick>& stick ,sf::RenderWindow& window )
+{
+	stick->blinkBlocker();
+
+	sf::Clock clock;
+	int deltaTime = 1;
+
+	stick->drawTopBlocker(window);
+	window.display();
+
+	while ((int)clock.getElapsedTime().asSeconds() < deltaTime)
+	{
+	}
+
+	stick->unblinkBlocker();
+
+
 }
