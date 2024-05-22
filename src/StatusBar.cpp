@@ -1,4 +1,4 @@
-#include "States.h"
+#include "StatusBar.h"
 //=============================================================
 // ctor for statuse bar
 StatusBar::StatusBar(const StickContainer& board, int time, int score)
@@ -39,6 +39,8 @@ void StatusBar::setText(sf::Text& text)
 	text.setFont(m_font);
 	text.setCharacterSize(20);
 	text.setFillColor(sf::Color::Yellow);
+	text.setOutlineColor(sf::Color::Black);
+	text.setOutlineThickness(2);
 }
 
 //======================================================
