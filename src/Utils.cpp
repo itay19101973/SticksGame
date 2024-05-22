@@ -72,3 +72,32 @@ int getStickScore(const sf::Color& color)
 
     return 0; // Return 0 for unrecognized colors
 }
+
+std::string openFileDialog() {
+    OPENFILENAME ofn;       // common dialog box structure
+    TCHAR szFile[260] = { 0 };       // buffer for file name
+
+    // Initialize OPENFILENAME
+    ZeroMemory(&ofn, sizeof(ofn));
+    ofn.lStructSize = sizeof(ofn);
+    ofn.hwndOwner = NULL;
+    ofn.lpstrFile = szFile;
+    ofn.lpstrFile[0] = '\0';
+    ofn.nMaxFile = sizeof(szFile);
+    ofn.lpstrFilter = TEXT("All\0*.*\0Text\0*.TXT\0");
+    ofn.nFilterIndex = 1;
+    ofn.lpstrFileTitle = NULL;
+    ofn.nMaxFileTitle = 0;
+    ofn.lpstrInitialDir = NULL;
+    ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
+
+    // Display the Open dialog box
+    if (GetOpenFileName(&ofn) == TRUE) {
+        // Convert TCHAR to std::string
+        return std::string(ofn.lpstrFile);
+    }
+    else {
+        // Return empty string if no file selected
+        return "";
+    }
+}

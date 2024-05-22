@@ -2,7 +2,8 @@
 
 void LoadButton::action(sf::RenderWindow& window)
 {
-	std::ifstream gameFile("Board.txt");
+	std::string filenName = openFileDialog();
+	std::ifstream gameFile(filenName);
 	std::list<std::shared_ptr<Stick>> sticks;
 	int numOfSticks,
 		time,
@@ -53,6 +54,7 @@ std::shared_ptr<Stick> LoadButton::readStickData(std::string& line)
 
 	return stick;
 }
+
 void LoadButton::action(GameButtonFlags_t& flag)
 {
 }
