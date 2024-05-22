@@ -1,5 +1,6 @@
 #include "States.h"
-
+//=============================================================
+// ctor for statuse bar
 StatusBar::StatusBar(const StickContainer& board, int time, int score)
 	: m_levelTime(time), m_score(score),
 	m_position(sf::Vector2f(0, 0)), m_clock(),
@@ -48,12 +49,11 @@ void StatusBar::draw(sf::RenderWindow& window) const
 	window.draw(m_liftedText);
 	window.draw(m_remainingText);
 	window.draw(m_liftableText);
-
-
 }
 
 
 //======================================================
+// updates the data presented on the status bar
 void StatusBar::update()
 {
 
@@ -71,9 +71,6 @@ void StatusBar::update()
 
 	this->m_liftableText.setString("Liftable\n" + 
 		std::to_string(m_board.getLiftable()));
-
-	
-
 }
 
 //======================================================
@@ -93,7 +90,7 @@ int StatusBar::getTime() const
 {
 	return this->m_levelTime - (int)m_clock.getElapsedTime().asSeconds();
 }
-
+//=============================================================
 void StatusBar::addTime(const int& time)
 {
 	this->m_levelTime += time;
