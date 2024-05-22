@@ -81,9 +81,9 @@ void Game::addButtonsToGameMenu()
 	ImageManager& manager = ImageManager::getInstance();
 
 	this->m_menu.addButton(std::make_unique<HintButton>(HINT_BUTTON_POS,
-		manager.getImage("PlayButton")  , GAME_MENU_BUTTON_SIZE) , "HintButton");
+		manager.getImage("HintButton")  , GAME_MENU_BUTTON_SIZE) , "HintButton");
 	this->m_menu.addButton(std::make_unique<SaveButton>(SAVE_BUTTON_POS, 
-		manager.getImage("PlayButton") , GAME_MENU_BUTTON_SIZE ), "SaveButton");
+		manager.getImage("SaveButton") , GAME_MENU_BUTTON_SIZE ), "SaveButton");
 }
 
 void Game::handleButtonEvents(GameButtonFlags_t& event)
