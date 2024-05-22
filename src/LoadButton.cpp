@@ -4,7 +4,6 @@ void LoadButton::action(sf::RenderWindow& window)
 {
 	std::string filenName = openFileDialog();
 	std::ifstream gameFile(filenName);
-	std::ifstream gameFile("Board.txt");
 	if (!gameFile.is_open())
 	{
 		throw FileException("Failed to open the file.");
@@ -25,8 +24,8 @@ void LoadButton::action(sf::RenderWindow& window)
 		throw WrongInputException("Invalid file format , failed to read data");
 	}
 
-	if (time > MAX_TIME) {
-		throw TimeException("Time limit has passed the maximum");
+	if (time > MAX_TIME || time <= 0) {
+		throw TimeException("Time is out of range");
 	}
 	
 	this->createStickContainer(gameFile, sticks);
