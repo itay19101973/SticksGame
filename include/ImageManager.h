@@ -5,6 +5,10 @@
 #include <unordered_map>
 #include <string>
 
+/**
+ * Represents a manager for loading and retrieving images (textures) for the game.
+ */
+
 class ImageManager {
 public:
 

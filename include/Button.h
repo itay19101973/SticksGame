@@ -4,6 +4,10 @@
 #include "Settings.h"
 #include "ImageManager.h"
 
+/**
+ * Represents a clickable button in the game.
+ */
+
 class Button
 {
 public:

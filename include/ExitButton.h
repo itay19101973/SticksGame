@@ -2,6 +2,11 @@
 
 #include "Button.h"
 
+/**
+ * Represents an exit button in the game.
+ */
+
+
 class ExitButton : public Button
 {
 public:

@@ -8,6 +8,9 @@
 #include <fstream>
 
 
+/**
+ * Represents a container for sticks in the game.
+ */
 
 class StickContainer {
 public:

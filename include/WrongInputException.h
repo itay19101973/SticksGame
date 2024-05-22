@@ -5,6 +5,10 @@
 #include <exception>
 #include <string>
 
+/**
+ * Represents an exception related to wrong input.
+ */
+
 class WrongInputException : public std::exception {
 public:
     explicit WrongInputException(const std::string& msg);

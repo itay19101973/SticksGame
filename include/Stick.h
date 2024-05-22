@@ -7,6 +7,12 @@
 #include <numbers>
 #include "Utils.h"
 
+
+/**
+ * Represents a stick in the game.
+ */
+
+
 class Stick
 {
 public:

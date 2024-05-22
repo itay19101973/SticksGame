@@ -1,5 +1,93 @@
+            Stick Game - Readme
+****************************************************************************
+Written by: Nir Busheri 206502569
+            Itay Mijan 3222295460
+
+****************************************************************************
+
+This program implements a stick game using SFML graphics library. It provides a simple game loop where players interact with stick objects on the screen.
+
+****************************************************************************
+                                Files
+****************************************************************************
+
+Header Files:
+- Button.h: Defines the Button class for creating interactive buttons.
+- Controller.h: Defines the Controller class for controlling the game flow.
+- FileException.h: Defines exceptions related to file operations.
+- Game.h: Defines the Game class representing a game instance.
+- HintButton.h: Defines the HintButton class, a specific type of button for providing hints.
+- LoadButton.h: Defines the LoadButton class, a specific type of button for loading game data.
+- SaveButton.h: Defines the SaveButton class, a specific type of button for saving game data.
+- Settings.h: Defines settings and constants for the game.
+- StatusBar.h: Defines the StatusBar class representing the game status bar.
+- Stick.h: Defines the Stick class representing a stick object in the game.
+- StickContainer.h: Defines the StickContainer class representing a container for stick objects.
+- StickData.h: Defines the StickData struct containing data for a stick object.
+- TimeException.h: Defines exceptions related to time operations.
+- Utils.h: Contains utility functions and helper classes for the game.
+- WrongInputException.h: Defines exceptions related to incorrect input.
+
+C++ Files:
+- Button.cpp: Contains the implementation of the Button class.
+- Controller.cpp: Contains the implementation of the Controller class.
+- FileException.cpp: Contains the implementation of file exception classes.
+- Game.cpp: Contains the implementation of the Game class.
+- HintButton.cpp: Contains the implementation of the HintButton class.
+- LoadButton.cpp: Contains the implementation of the LoadButton class.
+- SaveButton.cpp: Contains the implementation of the SaveButton class.
+- StatusBar.cpp: Contains the implementation of the StatusBar class.
+- Stick.cpp: Contains the implementation of the Stick class.
+- StickContainer.cpp: Contains the implementation of the StickContainer class.
+- TimeException.cpp: Contains the implementation of time exception classes.
+- Utils.cpp: Contains the implementation of utility functions and helper classes.
+- WrongInputException.cpp: Contains the implementation of wrong input exception classes.
+
+****************************************************************************
+                            Data Structures
+****************************************************************************
+
+- StickContainer - a container class for sticks, allowing to manage sticks
+                    with ease.
+                    Time complexity for the operations:
+                    Find a stick - O(n), n sticks
+- Stick - A class for stick.
+            Time complexity for operations:
+            Check if a stick can be lifted - O(1)
+            Find the sticks that are over the stick - O(k), k sticks above
+
+
+****************************************************************************
+                            Algorithms
+****************************************************************************
+
+- None specified.
+
+****************************************************************************
+                                Design
+****************************************************************************
+
+The program follows an object-oriented design, with each class representing
+a specific component or functionality of the game. It addresses the 
+constraints outlined in the exercise, ensuring efficient management of 
+sticks with the StickContainer class and providing quick access to 
+relevant stick information. The SFML library is utilized for graphics 
+rendering, enhancing the visual experience of the game.
+
+****************************************************************************
+
+****************************************************************************
+                                Known Bugs
+****************************************************************************
+
+- None reported.
+
+****************************************************************************
+                                Other Comments
+****************************************************************************
+
 FILE FORMAT:
-==========first line======
+==========top of the file======
 ORIGINAL_NUMBER_OF_STICKS_IN_THE_LEVEL
 SCORE TIME
 /*STICK1_DATA*/ POS COLOR_NUM ANGLE LENGTH
@@ -8,10 +96,10 @@ SCORE TIME
 .
 .
 /*STICK_N_DATA*/: POS COLOR_NUM ANGLE LENGTH
-=========last line=========
+=========bottom of the file=========
 
 Example:
-==========first line======
+==========top of the file======
 30
 15 30 
 550 330 1 90 350
@@ -20,4 +108,4 @@ Example:
 .
 .
 320 419 3 119 399
-=========last line=========
+=========bottom of the file=========

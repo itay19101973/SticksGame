@@ -52,10 +52,13 @@ bool Button::isFloatedOn(const sf::Vector2f& mousePosition) const
 	return this->m_sprite.getGlobalBounds().contains(mousePosition);
 }
 
+//===================================================================
 sf::Vector2f Button::getFloatedSize()
 {
 	return m_floatedSize;
 }
+
+//===================================================================
 
 sf::Vector2f Button::getDefSize()
 {

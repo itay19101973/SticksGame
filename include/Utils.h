@@ -1,9 +1,13 @@
 #pragma once
 
 #include <iostream> 
-#include <SFML/Graphics.hpp> // Include SFML header for sf::Vector2f
-#include <windows.h>
+#include <SFML/Graphics.hpp>
 using Point = sf::Vector2f;
+
+
+/**
+ * Utility functions for the project.
+ */
 
 bool onSegment(Point p, Point q, Point r);
 int orientation(Point p, Point q, Point r);

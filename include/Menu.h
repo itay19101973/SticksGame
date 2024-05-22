@@ -9,6 +9,10 @@
 #include "WrongInputException.h"
 #include "TimeException.h"
 
+/**
+ * Represents a menu containing buttons for user interaction.
+ */
+
 class Menu
 {
 public:
