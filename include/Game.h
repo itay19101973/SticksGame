@@ -36,5 +36,6 @@ private:
 	States m_states;
 	
 	void saveGame() const;
+	void showEndScreen(bool win) const;
 	
 };

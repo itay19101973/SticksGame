@@ -118,3 +118,22 @@ void Game::saveGame() const
 	
 }
 
+void Game::showEndScreen(bool win) const
+{
+	ImageManager& manager = ImageManager::getInstance();
+	sf::Sprite image;
+	sf::Clock clock;
+	int time = 5;
+
+	win ? image.setTexture(manager.getImage("WinImage")) :
+		image.setTexture(manager.getImage("LoseImage"));
+
+	m_window.clear();
+	m_window.draw(image);
+	m_window.display();
+	
+	while ((int)clock.getElapsedTime().asSeconds() < time)
+	{
+	}
+}
+
