@@ -3,6 +3,11 @@
 void LoadButton::action(sf::RenderWindow& window)
 {
 	std::ifstream gameFile("Board.txt");
+	if (!gameFile.is_open())
+	{
+		throw FileException("Failed to open the file.");
+	}
+
 	std::list<std::shared_ptr<Stick>> sticks;
 	int numOfSticks,
 		time,
@@ -11,6 +16,16 @@ void LoadButton::action(sf::RenderWindow& window)
 
 	// GetStickData and create a vector of sticks
 	gameFile >> numOfSticks >> time >> score;
+
+	if (gameFile.fail())
+	{
+		gameFile.clear();
+		throw WrongInputException("Invalid file format , failed to read data");
+	}
+
+	if (time > MAX_TIME) {
+		throw TimeException("Time limit has passed the maximum");
+	}
 	
 	this->createStickContainer(gameFile, sticks);
 

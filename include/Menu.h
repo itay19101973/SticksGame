@@ -5,6 +5,9 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <string>
+#include "FileException.h"
+#include "WrongInputException.h"
+#include "TimeException.h"
 
 class Menu
 {
