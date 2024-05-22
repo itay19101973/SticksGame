@@ -71,6 +71,8 @@ void Game::run()
 		this->handleButtonEvents(buttonEvent);
 		this->checkWin(win);
 	}
+
+	this->showEndScreen(win);
 }
 
 void Game::addButtonsToGameMenu()
@@ -128,7 +130,7 @@ void Game::showEndScreen(bool win) const
 	ImageManager& manager = ImageManager::getInstance();
 	sf::Sprite image;
 	sf::Clock clock;
-	int time = 5;
+	int time = 3;
 
 	win ? image.setTexture(manager.getImage("WinImage")) :
 		image.setTexture(manager.getImage("LoseImage"));

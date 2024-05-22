@@ -6,6 +6,9 @@ ImageManager::ImageManager()
     this->loadImage("LoadButton", "LoadButton.png");
     this->loadImage("ExitButton", "ExitButton.png");
     this->loadImage("Background", "Background.png");
+    this->loadImage("WinImage", "EndScreenWin.png");
+    this->loadImage("LoseImage", "EndScreenLose.png");
+
 
 
 }
