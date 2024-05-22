@@ -88,6 +88,7 @@ void Game::addButtonsToGameMenu()
 
 void Game::handleButtonEvents(GameButtonFlags_t& event)
 {
+	sf::Clock timer;
 	switch (event)
 	{
 	case Hint:
@@ -99,6 +100,7 @@ void Game::handleButtonEvents(GameButtonFlags_t& event)
 	default:
 		break;
 	}
+	this->m_states.addTime(timer.getElapsedTime().asSeconds());
 
 	event = None;
 }

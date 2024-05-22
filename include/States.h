@@ -16,6 +16,7 @@ public:
 	int& ScoreRef();
 	int getScore() const;
 	int getTime() const;
+	void addTime(const int & time );
 	
 
 private:

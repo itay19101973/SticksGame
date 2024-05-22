@@ -93,3 +93,8 @@ int States::getTime() const
 {
 	return this->m_levelTime - (int)m_clock.getElapsedTime().asSeconds();
 }
+
+void States::addTime(const int& time)
+{
+	this->m_levelTime += time;
+}
