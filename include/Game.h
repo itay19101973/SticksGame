@@ -32,7 +32,7 @@ private:
 	Menu m_menu;
 	sf::RenderWindow& m_window;
 	sf::Clock m_clock;
-	StickContainer m_board;
+	StickContainer m_stickContainer;
 	States m_states;
 	
 	void saveGame() const;
