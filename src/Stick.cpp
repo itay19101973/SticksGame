@@ -122,21 +122,18 @@ const StickData& Stick::getData() const
 //=============================================================
 void Stick::blinkBlocker()
 {
-	int cell = m_blocking.size() - 1;
-	m_blocking[cell]->blink();
+	m_blocking[0]->blink();
 }
 //=============================================================
 void Stick::unblinkBlocker()
 {
-	int cell = m_blocking.size() - 1;
-	m_blocking[cell]->unblink();
+	m_blocking[0]->unblink();
 }
 //=============================================================
 // function draws the top blocker of a stick
 void Stick::drawTopBlocker(sf::RenderWindow & window) const
 {
-	int cell = m_blocking.size() - 1;
-	m_blocking[cell]->draw(window);
+	m_blocking[0]->draw(window);
 }
 /*=============================================================
 *                 operator overloading 
