@@ -1,5 +1,6 @@
 #include "LoadButton.h"
-
+//=============================================================
+// this function loades the currents game data into a file
 void LoadButton::action(sf::RenderWindow& window)
 {
 	std::string filenName = openFileDialog();
@@ -41,7 +42,8 @@ void LoadButton::action(sf::RenderWindow& window)
 	game.run();
 
 }
-
+//=============================================================
+// creating a container of sticks from the data in the given file
 void LoadButton::createStickContainer(std::ifstream& gameFile, 
 	std::list<std::shared_ptr<Stick>>& sticks)
 {
@@ -64,7 +66,8 @@ void LoadButton::createStickContainer(std::ifstream& gameFile,
 		sticks.push_back(stick);
 	}
 }
-
+//=============================================================
+// this function reads the sticks data and creates a stick
 std::shared_ptr<Stick> LoadButton::readStickData(std::string& line)
 {
 	StickData data;
@@ -73,11 +76,15 @@ std::shared_ptr<Stick> LoadButton::readStickData(std::string& line)
 
 	iss >> data.m_pos.x >> data.m_pos.y >> data.m_color >> data.m_angle >> data.m_length;
 
+	if (iss.fail()) {
+		throw WrongInputException("Invalid file format , failed to read data");
+	}
+
 	auto stick = std::make_unique<Stick>(data);
 
 	return stick;
 }
-
+//=============================================================
 void LoadButton::action(GameButtonFlags_t& flag)
 {
 }

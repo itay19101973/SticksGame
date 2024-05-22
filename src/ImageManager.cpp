@@ -1,5 +1,6 @@
 #include "ImageManager.h"
-
+//=============================================================
+// ctor
 ImageManager::ImageManager()
 {
     this->loadImage("PlayButton", "PlayButton.png");
@@ -15,15 +16,14 @@ ImageManager::ImageManager()
 
 
 }
-
-
+//=============================================================
 ImageManager& ImageManager::getInstance()
 {
 	static ImageManager instance;
 	return instance;
    
 }
-
+//=============================================================
 // Method to load an image from file
 void ImageManager::loadImage(const std::string& name, const std::string& filename)
 {
@@ -34,7 +34,7 @@ void ImageManager::loadImage(const std::string& name, const std::string& filenam
 
     
 }
-
+//=============================================================
 // Method to get a reference to a loaded image
 const sf::Texture& ImageManager::getImage(const std::string& name) const
 {

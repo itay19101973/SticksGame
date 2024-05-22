@@ -1,5 +1,7 @@
 #include "Utils.h"
 
+//=============================================================
+// those 3 functions above handles the intersection of 2 sticks
 bool onSegment(Point p, Point q, Point r)
 {
     if (q.x <= std::max(p.x, r.x) && q.x >= std::min(p.x, r.x) &&
@@ -8,7 +10,7 @@ bool onSegment(Point p, Point q, Point r)
 
     return false;
 }
-
+//=============================================================
 int orientation(Point p, Point q, Point r)
 {
     int val = (q.y - p.y) * (r.x - q.x) -
@@ -41,8 +43,8 @@ bool doIntersect(Point p1, Point q1, Point p2, Point q2)
 
     return false;
 }
-
-
+//=============================================================
+// this function returns the score of a stick by given its color
 int getStickScore(const sf::Color& color)
 {
     if (color == sf::Color::White)
@@ -72,7 +74,9 @@ int getStickScore(const sf::Color& color)
 
     return 0; // Return 0 for unrecognized colors
 }
-
+//=============================================================
+// this function let the user choose a file from its computer to
+// upload a game file
 std::string openFileDialog() {
     OPENFILENAME ofn;       // common dialog box structure
     TCHAR szFile[260] = { 0 };       // buffer for file name

@@ -1,6 +1,7 @@
 #include "Stick.h"
 
-
+//=============================================================
+// ctor for sticks , use this if a new game starts
 Stick::Stick()
 {
 
@@ -10,6 +11,7 @@ Stick::Stick()
 }
 
 //=======================================================
+// genarates random values do a stick (position , color , length)
 void Stick::getRandomVals()
 {
 	m_data.m_pos = sf::Vector2f(OFFSET + rand() % (WINDOW_MANAGER_WIDTH - 2 * OFFSET),
@@ -21,12 +23,15 @@ void Stick::getRandomVals()
 
 
 //=======================================================
+// ctor for sticks , use if the data is being given from a file
 Stick::Stick(const StickData& data) : m_data(data)
 {
 
 	this->setData(data);
 }
-
+//=============================================================
+//this function sets the values to a stick according to a specific data given
+// use when loading saved game
 void Stick::setData(const StickData& data)
 {
 	m_stick.setPosition(sf::Vector2f(data.m_pos.x, data.m_pos.y));
@@ -70,6 +75,7 @@ bool Stick::isClicked(const sf::Vector2f& mousePos) const
 }
 
 //=======================================================
+// checks if 2 sticks intersects
 bool Stick::isIntersect(const std::shared_ptr<Stick>& other) const
 {
 	return doIntersect(this->m_stick.getPosition(), this->m_endPoint,
@@ -77,6 +83,8 @@ bool Stick::isIntersect(const std::shared_ptr<Stick>& other) const
 }
 
 //=======================================================
+// gets a stick to remove and removes it from the sticks that he blocks
+// it removes it from every sticks array blocker
 void Stick::updateBlockers(std::shared_ptr<Stick> stickToRemove)
 {
 	for (auto it = this->m_blocking.begin(); it != this->m_blocking.end(); ++it)
@@ -88,75 +96,76 @@ void Stick::updateBlockers(std::shared_ptr<Stick> stickToRemove)
 		}
 	}
 }
+//=============================================================
 
 int Stick::getScore() const
 {
 	return m_score;
 }
-
+//=============================================================
 void Stick::blink()
 {
 	m_stick.setOutlineColor(sf::Color::White);
 	m_stick.setOutlineThickness(5);
 }
-
+//=============================================================
 void Stick::unblink()
 {
 	m_stick.setOutlineColor(sf::Color::White);
 	m_stick.setOutlineThickness(1);
 }
-
+//=============================================================
 const StickData& Stick::getData() const
 {
 	return this->m_data;
 }
-
+//=============================================================
 void Stick::blinkBlocker()
 {
 	int cell = m_blocking.size() - 1;
 	m_blocking[cell]->blink();
 }
-
+//=============================================================
 void Stick::unblinkBlocker()
 {
 	int cell = m_blocking.size() - 1;
 	m_blocking[cell]->unblink();
 }
-
+//=============================================================
+// function draws the top blocker of a stick
 void Stick::drawTopBlocker(sf::RenderWindow & window) const
 {
 	int cell = m_blocking.size() - 1;
 	m_blocking[cell]->draw(window);
 }
-
-
+/*=============================================================
+*                 operator overloading 
+=============================================================*/
 bool operator==(const Stick& stick1, const Stick& stick2)
 {
 	return stick1.getScore() == stick2.getScore();
 }
-
+//=============================================================
 bool operator<(const Stick& stick1, const Stick& stick2)
 {
 	return stick1.getScore() < stick2.getScore();
 }
-
+//=============================================================
 bool operator<=(const Stick& stick1, const Stick& stick2)
 {
 	return (stick1 < stick2) || (stick1 == stick2);
 }
-
+//=============================================================
 bool operator>(const Stick& stick1, const Stick& stick2)
 {
 	return !(stick1 <= stick2);
 }
-
+//=============================================================
 bool operator>=(const Stick& stick1, const Stick& stick2)
 {
 	return (stick1 > stick2) || (stick1 == stick2);
 }
-
-
-
+//=============================================================
 bool Stick::comperator::operator()(const std::shared_ptr<Stick>& stick1, 
 	const std::shared_ptr<Stick>& stick2) const
 {

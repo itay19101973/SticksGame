@@ -1,5 +1,6 @@
 #include "WrongInputException.h"
 
+
 WrongInputException::WrongInputException(const std::string& msg)
 	: m_message(msg)
 {

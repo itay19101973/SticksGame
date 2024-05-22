@@ -1,10 +1,13 @@
 #include "StickContainer.h"
 
 //========================================================
+// ctor for sticks container
 StickContainer::StickContainer() : m_numOfSticks(0)
 {
 	this->m_numOfSticks = (rand() % 10) + MIN_NUM_OF_STICKS;
 
+
+	//create new sticks 
 	for (int i = 0; i < m_numOfSticks; i++)
 	{
 		auto stick = std::make_shared<Stick>();
@@ -14,14 +17,16 @@ StickContainer::StickContainer() : m_numOfSticks(0)
 		{
 			if (otherStick->isIntersect(stick))
 			{
+				// add new stick to blockers of another stick
 				otherStick->addBlocker(stick);
 			}
 		}
 
-
+		//add sticks to the stick conteiner
 		m_sticks.push_back(stick);	
 	}
 
+	// add sticks to the availables array
 	for (const auto &stick : m_sticks)
 	{
 		if (stick ->liftable())
@@ -33,7 +38,8 @@ StickContainer::StickContainer() : m_numOfSticks(0)
 
 
 }
-
+//=============================================================
+// ctor if game is loaded from files
 StickContainer::StickContainer(int numOfSticks,
 	std::list<std::shared_ptr<Stick>>& sticks)
 	: m_numOfSticks(numOfSticks), m_sticks(sticks)
@@ -63,6 +69,7 @@ bool StickContainer::isEmpty() const
 }
 
 //========================================================
+// this function maintaining the sticks on the board according to events 
 void StickContainer::handleSticks(const sf::Vector2f& mousePos,
 						int& score , sf::RenderWindow& window)
 {
@@ -130,6 +137,7 @@ int StickContainer::getLiftable() const
 }
 
 //========================================================
+// this functions draws all the sticks that can be lifted on the board
 void StickContainer::showAvilables(sf::RenderWindow& window) const
 {
 	sf::Clock clock;
@@ -144,6 +152,7 @@ void StickContainer::showAvilables(sf::RenderWindow& window) const
 
 		while ((int)clock.getElapsedTime().asSeconds() < deltaTime)
 		{
+			// busy wait , draws them one by one
 		}
 
 		stick->unblink();
@@ -154,6 +163,7 @@ void StickContainer::showAvilables(sf::RenderWindow& window) const
 }
 
 //========================================================
+// writees the sticks data into a file this file can be loaded later
 void StickContainer::writeSticksData(std::ofstream& gameFile) const
 {
 	for (const auto& stick : this->m_sticks)
@@ -174,6 +184,8 @@ void StickContainer::addToAvilables(const std::shared_ptr<Stick>& stick)
 }
 
 //========================================================
+// gets a lifted stick and removes it from the remaining sticks 
+// blocker array
 void StickContainer::updateBlockingSticks(const std::shared_ptr<Stick> stick)
 {
 	for (auto it = m_sticks.begin(); it != m_sticks.end(); ++it)
@@ -181,7 +193,8 @@ void StickContainer::updateBlockingSticks(const std::shared_ptr<Stick> stick)
 		(*it)->updateBlockers(stick);
 	}
 }
-
+//=============================================================
+// this function draws a blocker of a stick if it was pressed but cant be lifted
 void StickContainer::showBlocker(std::shared_ptr<Stick>& stick ,sf::RenderWindow& window )
 {
 	stick->blinkBlocker();
@@ -197,6 +210,4 @@ void StickContainer::showBlocker(std::shared_ptr<Stick>& stick ,sf::RenderWindow
 	}
 
 	stick->unblinkBlocker();
-
-
 }

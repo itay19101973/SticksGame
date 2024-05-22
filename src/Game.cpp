@@ -19,6 +19,7 @@ Game::Game(sf::RenderWindow& window, StickContainer& container,
 
 
 //==============================================
+// main game loop
 void Game::run()
 {
 	sf::Vector2f mousePos;
@@ -35,7 +36,7 @@ void Game::run()
 
 
 
-
+	// main game loop
 	while (m_window.isOpen() && m_states.getTime() > 0 && !win)
 	{
 		m_window.clear();
@@ -47,6 +48,7 @@ void Game::run()
 
 		m_window.display();
 
+		// event handling
 		for (auto event = sf::Event{}; m_window.pollEvent(event); )
 		{
 			switch (event.type)
@@ -79,10 +81,9 @@ void Game::run()
 
 	this->showEndScreen(win);
 }
-
+//=============================================================
 void Game::addButtonsToGameMenu()
 {
-	//TODO - CHANGE FOR THE REAL PICTURES
 	ImageManager& manager = ImageManager::getInstance();
 
 	this->m_menu.addButton(std::make_unique<HintButton>(HINT_BUTTON_POS,
@@ -90,7 +91,8 @@ void Game::addButtonsToGameMenu()
 	this->m_menu.addButton(std::make_unique<SaveButton>(SAVE_BUTTON_POS, 
 		manager.getImage("SaveButton") , GAME_MENU_BUTTON_SIZE ), "SaveButton");
 }
-
+//=============================================================
+// this function handles the button events according to the pressed button 
 void Game::handleButtonEvents(GameButtonFlags_t& event)
 {
 	sf::Clock timer;
@@ -111,6 +113,7 @@ void Game::handleButtonEvents(GameButtonFlags_t& event)
 }
 
 //========================================
+//this function saves the current game
 void Game::saveGame() const
 {
 	std::string fileName = openFileDialog();
@@ -124,7 +127,7 @@ void Game::saveGame() const
 	gameFile.close();
 	
 }
-
+//=============================================================
 void Game::checkWin(bool& win)
 {
 	if (m_stickContainer.isEmpty())
@@ -132,7 +135,8 @@ void Game::checkWin(bool& win)
 		win = true;
 	}
 }
-
+//=============================================================
+// this function displays the end screen
 void Game::showEndScreen(bool win) const
 {
 	ImageManager& manager = ImageManager::getInstance();
@@ -151,7 +155,7 @@ void Game::showEndScreen(bool win) const
 	{
 	}
 }
-
+//=============================================================
 void Game::loadBackground(sf::Sprite& background)
 {
 	ImageManager& manager = ImageManager::getInstance();
