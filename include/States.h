@@ -5,9 +5,9 @@
 #include "StickContainer.h"
 
 
-class States {
+class StatusBar {
 public:
-	States(const StickContainer& board, int time, int score);
+	StatusBar(const StickContainer& board, int time, int score);
 
 	void setText(sf::Text& text);
 

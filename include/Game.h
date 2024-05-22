@@ -33,7 +33,7 @@ private:
 	sf::RenderWindow& m_window;
 	sf::Clock m_clock;
 	StickContainer m_stickContainer;
-	States m_states;
+	StatusBar m_states;
 	
 	void saveGame() const;
 	void showEndScreen(bool win) const;

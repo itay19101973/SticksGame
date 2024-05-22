@@ -1,6 +1,6 @@
 #include "States.h"
 
-States::States(const StickContainer& board, int time, int score)
+StatusBar::StatusBar(const StickContainer& board, int time, int score)
 	: m_levelTime(time), m_score(score),
 	m_position(sf::Vector2f(0, 0)), m_clock(),
 	m_board(board)
@@ -33,7 +33,7 @@ States::States(const StickContainer& board, int time, int score)
 
 
 //======================================================
-void States::setText(sf::Text& text)
+void StatusBar::setText(sf::Text& text)
 {
 	text.setFont(m_font);
 	text.setCharacterSize(20);
@@ -41,7 +41,7 @@ void States::setText(sf::Text& text)
 }
 
 //======================================================
-void States::draw(sf::RenderWindow& window) const
+void StatusBar::draw(sf::RenderWindow& window) const
 {
 	window.draw(m_timeText);
 	window.draw(m_scoreText);
@@ -54,7 +54,7 @@ void States::draw(sf::RenderWindow& window) const
 
 
 //======================================================
-void States::update()
+void StatusBar::update()
 {
 
 	this->m_timeText.setString("Time\n" + std::to_string(m_levelTime - 
@@ -77,24 +77,24 @@ void States::update()
 }
 
 //======================================================
-int& States::ScoreRef()
+int& StatusBar::ScoreRef()
 {
 	return m_score;
 }
 
 //======================================================
-int States::getScore() const
+int StatusBar::getScore() const
 {
 	return m_score;
 }
 
 //======================================================
-int States::getTime() const
+int StatusBar::getTime() const
 {
 	return this->m_levelTime - (int)m_clock.getElapsedTime().asSeconds();
 }
 
-void States::addTime(const int& time)
+void StatusBar::addTime(const int& time)
 {
 	this->m_levelTime += time;
 }
