@@ -37,6 +37,6 @@ private:
 	
 	void saveGame() const;
 	void showEndScreen(bool win) const;
-	
+	void loadBackground(sf::Sprite& background);
 	void checkWin(bool& win);
 };

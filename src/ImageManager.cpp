@@ -10,6 +10,7 @@ ImageManager::ImageManager()
     this->loadImage("LoseImage", "EndScreenLose.png");
     this->loadImage("HintButton", "HintButton.png");
     this->loadImage("SaveButton", "SaveButton.png");
+    this->loadImage("GameBackground", "GameBackground.png");
 
 
 

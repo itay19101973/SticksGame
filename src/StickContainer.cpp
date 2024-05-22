@@ -77,7 +77,7 @@ void StickContainer::handleSticks(const sf::Vector2f& mousePos,
 		{
 			canLift= true;
 			this->updateBlockingSticks(*it);
-			iteratorsToErase.push_back(it); // Store iterator to be erased later	
+			iteratorsToErase.push_back(it); // Store iterator to be erased later
 		}
 	}
 	// cant pick anyone to lift , draw a blocker

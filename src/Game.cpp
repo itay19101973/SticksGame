@@ -29,6 +29,10 @@ void Game::run()
 	GameButtonFlags_t buttonEvent = None;
 	bool win = false;
 
+	sf::Sprite background;
+
+	this->loadBackground(background);
+
 
 
 
@@ -36,6 +40,7 @@ void Game::run()
 	{
 		m_window.clear();
 
+		m_window.draw(background);
 		m_stickContainer.draw(m_window);
 		m_states.draw(m_window);
 		m_menu.draw(m_window);
@@ -145,5 +150,12 @@ void Game::showEndScreen(bool win) const
 	while ((int)clock.getElapsedTime().asSeconds() < time)
 	{
 	}
+}
+
+void Game::loadBackground(sf::Sprite& background)
+{
+	ImageManager& manager = ImageManager::getInstance();
+
+	background.setTexture(manager.getImage("GameBackground"));
 }
 
