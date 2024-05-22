@@ -9,7 +9,7 @@ Game::Game(sf::RenderWindow& window)
 
 //=========================================
 // Ctor from file
-Game::Game(sf::RenderWindow& window, Board& board,
+Game::Game(sf::RenderWindow& window, StickContainer& board,
 	int time,
 	int score)
 	: m_window(window), m_board(board), m_states(m_board, time, score)

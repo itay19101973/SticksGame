@@ -1,7 +1,7 @@
-#include "Board.h"
+#include "StickContainer.h"
 
 //========================================================
-Board::Board() : m_numOfSticks(0)
+StickContainer::StickContainer() : m_numOfSticks(0)
 {
 	this->m_numOfSticks = (rand() % 10) + MIN_NUM_OF_STICKS;
 
@@ -34,7 +34,7 @@ Board::Board() : m_numOfSticks(0)
 
 }
 
-Board::Board(int numOfSticks,
+StickContainer::StickContainer(int numOfSticks,
 	std::list<std::shared_ptr<Stick>>& sticks)
 	: m_numOfSticks(numOfSticks), m_sticks(sticks)
 {
@@ -48,7 +48,7 @@ Board::Board(int numOfSticks,
 }
 
 //========================================================
-void Board::draw(sf::RenderWindow& window) const
+void StickContainer::draw(sf::RenderWindow& window) const
 {
 	for (const auto& stick : m_sticks)
 	{
@@ -57,13 +57,13 @@ void Board::draw(sf::RenderWindow& window) const
 }
 
 //========================================================
-bool Board::isEmpty() const
+bool StickContainer::isEmpty() const
 {
 	return this->m_sticks.empty();
 }
 
 //========================================================
-void Board::handleSticks(const sf::Vector2f& mousePos,
+void StickContainer::handleSticks(const sf::Vector2f& mousePos,
 						int& score , sf::RenderWindow& window)
 {
 	// Create a list to store iterators of elements to be erased
@@ -105,32 +105,32 @@ void Board::handleSticks(const sf::Vector2f& mousePos,
 }
 
 //========================================================
-int Board::getRemaining() const
+int StickContainer::getRemaining() const
 {
 	return m_sticks.size();
 }
 
 
 //========================================================
-int Board::getLifted() const
+int StickContainer::getLifted() const
 {
 	return m_numOfSticks - this->getRemaining();
 }
 
 //========================================================
-int Board::getOgNumOfSticks() const
+int StickContainer::getOgNumOfSticks() const
 {
 	return this->m_numOfSticks;
 }
 
 //========================================================
-int Board::getLiftable() const
+int StickContainer::getLiftable() const
 {
 	return this->m_avilables.size();
 }
 
 //========================================================
-void Board::showAvilables(sf::RenderWindow& window) const
+void StickContainer::showAvilables(sf::RenderWindow& window) const
 {
 	sf::Clock clock;
 
@@ -154,7 +154,7 @@ void Board::showAvilables(sf::RenderWindow& window) const
 }
 
 //========================================================
-void Board::writeSticksData(std::ofstream& gameFile) const
+void StickContainer::writeSticksData(std::ofstream& gameFile) const
 {
 	for (const auto& stick : this->m_sticks)
 	{
@@ -168,13 +168,13 @@ void Board::writeSticksData(std::ofstream& gameFile) const
 
 
 //========================================================
-void Board::addToAvilables(const std::shared_ptr<Stick>& stick)
+void StickContainer::addToAvilables(const std::shared_ptr<Stick>& stick)
 {
 	this->m_avilables.insert(stick);
 }
 
 //========================================================
-void Board::updateBlockingSticks(const std::shared_ptr<Stick> stick)
+void StickContainer::updateBlockingSticks(const std::shared_ptr<Stick> stick)
 {
 	for (auto it = m_sticks.begin(); it != m_sticks.end(); ++it)
 	{
@@ -182,7 +182,7 @@ void Board::updateBlockingSticks(const std::shared_ptr<Stick> stick)
 	}
 }
 
-void Board::showBlocker(std::shared_ptr<Stick>& stick ,sf::RenderWindow& window )
+void StickContainer::showBlocker(std::shared_ptr<Stick>& stick ,sf::RenderWindow& window )
 {
 	stick->blinkBlocker();
 

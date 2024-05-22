@@ -1,6 +1,6 @@
 #include "States.h"
 
-States::States(const Board& board, int time, int score)
+States::States(const StickContainer& board, int time, int score)
 	: m_levelTime(time), m_score(score),
 	m_position(sf::Vector2f(0, 0)), m_clock(),
 	m_board(board)

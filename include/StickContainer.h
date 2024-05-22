@@ -9,10 +9,10 @@
 
 
 
-class Board {
+class StickContainer {
 public:
-	Board();
-	Board(int numOfSticks,
+	StickContainer();
+	StickContainer(int numOfSticks,
 		std::list<std::shared_ptr<Stick>>& sticks);
 	void draw(sf::RenderWindow& window) const;
 	bool isEmpty() const;

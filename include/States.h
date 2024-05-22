@@ -2,12 +2,12 @@
 
 #include <SFML/Graphics.hpp>
 #include "Settings.h"
-#include "Board.h"
+#include "StickContainer.h"
 
 
 class States {
 public:
-	States(const Board& board, int time, int score);
+	States(const StickContainer& board, int time, int score);
 
 	void setText(sf::Text& text);
 
@@ -31,7 +31,7 @@ private:
 		m_liftableText,
 		m_liftedText;
 
-	const Board& m_board;
+	const StickContainer& m_board;
 
 	
 

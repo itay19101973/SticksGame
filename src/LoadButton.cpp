@@ -16,7 +16,7 @@ void LoadButton::action(sf::RenderWindow& window)
 
 	gameFile.close();
 	// Create a board from sticks //TODO
-	Board board(numOfSticks, sticks);
+	StickContainer board(numOfSticks, sticks);
 
 	
 	// Create a game from states and board
