@@ -5,6 +5,8 @@ configure_file ("EndScreenLose.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("PlayButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LoadButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("ExitButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("HintButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("SaveButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 

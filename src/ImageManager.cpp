@@ -8,6 +8,8 @@ ImageManager::ImageManager()
     this->loadImage("Background", "Background.png");
     this->loadImage("WinImage", "EndScreenWin.png");
     this->loadImage("LoseImage", "EndScreenLose.png");
+    this->loadImage("HintButton", "HintButton.png");
+    this->loadImage("SaveButton", "SaveButton.png");
 
 
 
