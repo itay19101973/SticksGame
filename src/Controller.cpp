@@ -66,5 +66,6 @@ void Controller::run()
 				m_menu.handleFloating(mousePos);
 			}
 		}
+
 	}
 }

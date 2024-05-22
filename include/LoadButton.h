@@ -6,6 +6,9 @@
 #include <string>
 #include <sstream>
 #include <memory>
+#include "FileException.h"
+#include "WrongInputException.h"
+#include "TimeException.h"
 #include <filesystem>
 
 
