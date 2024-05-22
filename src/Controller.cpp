@@ -1,5 +1,6 @@
 #include "Controller.h"
 
+//===================================================================
 Controller::Controller()
 	: m_menu()
 {
@@ -7,6 +8,7 @@ Controller::Controller()
 	this->m_bgImge = sf::Sprite(manager.getImage("Background"));
 }
 
+//===================================================================
 void Controller::addMenuButtons()
 {
 	ImageManager& manager = ImageManager::getInstance();
@@ -18,6 +20,7 @@ void Controller::addMenuButtons()
 		MENU_BUTTON_DEFA_SIZE)  , "ExitButton");
 }
 
+//===================================================================
 void Controller::run()
 {
 	srand(time(NULL));

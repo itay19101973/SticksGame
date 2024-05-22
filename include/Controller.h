@@ -9,6 +9,9 @@
 #include "ExitButton.h"
 #include <memory>
 
+/**
+ * Represents a controller for managing game menus and buttons.
+ */
 
 class Controller
 {

@@ -4,6 +4,11 @@
 #include <unordered_map>
 #include <string>
 
+
+/**
+ * Settings for the game
+ */
+
 const unsigned int WINDOW_MANAGER_WIDTH = 869,
 WINDOW_MANAGER_HEIGHT = 867,
 COLOR_NUMBER = 6,

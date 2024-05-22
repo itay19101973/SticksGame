@@ -5,6 +5,10 @@
 #include "StickContainer.h"
 
 
+/**
+ * Represents the status bar of the game.
+ */
+
 class StatusBar {
 public:
 	StatusBar(const StickContainer& board, int time, int score);

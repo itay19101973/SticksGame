@@ -5,6 +5,10 @@
 #include <exception>
 #include <string>
 
+/**
+ * Represents a custom file exception.
+ */
+
 class FileException : public std::exception {
 public:
     explicit FileException(const std::string& msg);

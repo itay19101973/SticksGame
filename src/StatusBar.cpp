@@ -1,4 +1,4 @@
-#include "States.h"
+#include "StatusBar.h"
 
 StatusBar::StatusBar(const StickContainer& board, int time, int score)
 	: m_levelTime(time), m_score(score),

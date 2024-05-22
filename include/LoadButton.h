@@ -10,7 +10,9 @@
 #include "WrongInputException.h"
 #include "TimeException.h"
 
-
+/**
+ * Represents a button for loading a game state.
+ */
 
 class LoadButton : public Button
 {

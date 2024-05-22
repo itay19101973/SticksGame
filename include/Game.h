@@ -10,9 +10,12 @@
 #include "HintButton.h"
 #include "SaveButton.h"
 #include "Settings.h"
-#include "States.h"
+#include "StatusBar.h"
 #include <fstream>
 
+/**
+ * Represents a game instance.
+ */
 
 
 

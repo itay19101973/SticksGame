@@ -2,6 +2,9 @@
 #include "Game.h"
 #include "Button.h"
 
+/**
+ * Represents a button for starting the game.
+ */
 
 class PlayButton : public Button
 {

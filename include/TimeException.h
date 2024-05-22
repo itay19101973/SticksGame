@@ -5,6 +5,10 @@
 #include <exception>
 #include <string>
 
+/**
+ * Represents an exception related to time.
+ */
+
 class TimeException : public std::exception {
 public:
     explicit TimeException(const std::string& msg);
