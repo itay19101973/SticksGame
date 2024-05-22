@@ -9,10 +9,10 @@ Game::Game(sf::RenderWindow& window)
 
 //=========================================
 // Ctor from file
-Game::Game(sf::RenderWindow& window, StickContainer& board,
+Game::Game(sf::RenderWindow& window, StickContainer& container,
 	int time,
 	int score)
-	: m_window(window), m_stickContainer(board), m_states(m_stickContainer, time, score)
+	: m_window(window), m_stickContainer(container), m_states(m_stickContainer, time, score)
 {
 	
 }

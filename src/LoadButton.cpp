@@ -31,12 +31,12 @@ void LoadButton::action(sf::RenderWindow& window)
 	this->createStickContainer(gameFile, sticks);
 
 	gameFile.close();
-	// Create a board from sticks
-	StickContainer board(numOfSticks, sticks);
+	// Create a container from sticks
+	StickContainer container(numOfSticks, sticks);
 
 	
-	// Create a game from states and board
-	auto game = Game(window, board, time, score);
+	// Create a game from states and container
+	auto game = Game(window, container, time, score);
 
 	game.run();
 
@@ -52,6 +52,14 @@ void LoadButton::createStickContainer(std::ifstream& gameFile,
 	while (std::getline(gameFile, line))
 	{
 		auto stick = this->readStickData(line);
+
+		for (auto& otherStick : sticks)
+		{
+			if (otherStick->isIntersect(stick))
+			{
+				otherStick->addBlocker(stick);
+			}
+		}
 
 		sticks.push_back(stick);
 	}
