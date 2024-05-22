@@ -2,6 +2,7 @@
 
 #include <iostream> 
 #include <SFML/Graphics.hpp>
+#include <windows.h>
 using Point = sf::Vector2f;
 
 
